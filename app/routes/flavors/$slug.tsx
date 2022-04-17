@@ -56,7 +56,7 @@ export default function PostSlug() {
   }
   return (
     <main
-      className="container"
+      className="main"
       style={{
         backgroundImage: `linear-gradient(${data.secondaryColor} 50%, ${data.primaryColor} 50%)`,
       }}
