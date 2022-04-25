@@ -13,7 +13,7 @@ export const getFlavors = async () => {
   const snap = await getDocs(collection(db, "flavors"));
   const data: any[] = [];
   snap.forEach((doc: any) => {
-    data.push({ id: doc.id, data: doc.data() });
+    data.push({ id: doc.id, ...doc.data() });
   });
   return data;
 };

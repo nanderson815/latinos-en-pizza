@@ -1,5 +1,5 @@
 .main {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,5 +9,7 @@
     background: white;
     display: flex;
     border-radius: 5px;
-    padding: 20px;
+    min-width: 80vw;
+    max-width: 90vw;
+    min-height: 70vh;
 }
