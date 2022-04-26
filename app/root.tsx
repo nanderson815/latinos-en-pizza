@@ -79,7 +79,7 @@ export default function App() {
                 className="absolute left-0 right-0 top-4 sm:-top-2 z-30 w-40 sm:w-52"
               />
             </a>
-            <div className="card max-w-screen-2xl p-8 relative overflow-hidden my-14 mx-8 shadow-2xl">
+            <div className="card max-w-screen-2xl p-4 sm:p-8 relative overflow-hidden my-14 mx-8 shadow-2xl">
               <Outlet context={data[flavorIndex]} />
             </div>
           </div>

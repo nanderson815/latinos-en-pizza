@@ -502,21 +502,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 2rem;
 }
 
-.-mx-8 {
-  margin-left: -2rem;
-  margin-right: -2rem;
-}
-
-.-my-8 {
-  margin-top: -2rem;
-  margin-bottom: -2rem;
-}
-
-.-my-12 {
-  margin-top: -3rem;
-  margin-bottom: -3rem;
-}
-
 .-my-16 {
   margin-top: -4rem;
   margin-bottom: -4rem;
@@ -524,10 +509,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-12 {
   margin-top: 3rem;
-}
-
-.-mb-8 {
-  margin-bottom: -2rem;
 }
 
 .flex {
@@ -583,6 +564,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 2rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -614,6 +603,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:basis-full {
     flex-basis: 100%;
+  }
+
+  .sm\:p-8 {
+    padding: 2rem;
   }
 }
 
