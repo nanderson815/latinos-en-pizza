@@ -73,7 +73,7 @@ export default function PostSlug() {
         </div>
       </div>
 
-      <div className="sm:basis-full lg:basis-1/3 flex items-end -mb-8">
+      <div className="sm:basis-full lg:basis-1/3 flex items-end -my-16">
         <img
           src={data.image}
           alt={`A scoop of ${data.name}`}
