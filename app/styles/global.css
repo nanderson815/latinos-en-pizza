@@ -3,13 +3,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .card {
     background: white;
     display: flex;
-    border-radius: 5px;
-    min-width: 80vw;
-    max-width: 90vw;
+    border-radius: 10px;
     min-height: 70vh;
+}
+
+.Alatsi {
+    font-family: "Alatsi", Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 500px) {
+    .main-image {
+        height: 375px;
+        width: 350px !important;
+        max-width: none;
+        margin-left: -55px;
+        object-fit: cover;
+    }
 }

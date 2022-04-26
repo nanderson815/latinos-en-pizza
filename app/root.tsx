@@ -1,9 +1,6 @@
-import {
-  ActionFunction,
-  LoaderFunction,
-  MetaFunction,
-  redirect,
-} from "@remix-run/node";
+import { useState } from "react";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import styles from "./styles/global.css";
 import tailwind from "./styles/tailwind.css";
 import {
@@ -17,7 +14,7 @@ import {
 } from "@remix-run/react";
 import type { DocumentData } from "firebase/firestore";
 import { getFlavors } from "./utilities";
-import { useState } from "react";
+import Logo from "./images/logo.png";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -73,8 +70,18 @@ export default function App() {
             backgroundImage: `linear-gradient(${data[flavorIndex].secondaryColor} 50%, ${data[flavorIndex].primaryColor} 50%)`,
           }}
         >
-          <div className="card p-8 relative overflow-hidden m-8">
-            <Outlet context={data[flavorIndex]} />
+          <div className="relative">
+            <a href="https://www.yomicecream.com/">
+              <img
+                src={Logo}
+                alt="Yom Icecream logo"
+                style={{ margin: "auto" }}
+                className="absolute left-0 right-0 top-4 sm:-top-2 z-30 w-40 sm:w-52"
+              />
+            </a>
+            <div className="card max-w-screen-2xl p-8 relative overflow-hidden my-14 mx-8 shadow-2xl">
+              <Outlet context={data[flavorIndex]} />
+            </div>
           </div>
         </main>
         <ScrollRestoration />

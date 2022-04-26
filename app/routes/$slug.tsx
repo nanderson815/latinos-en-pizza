@@ -60,32 +60,40 @@ export default function PostSlug() {
   }
   return (
     <div className="flex flex-row flex-wrap w-full">
-      <div className="sm:basis-full lg:basis-1/3 grow">
-        <h1 className="text-3xl font-bold underline">{data.name}</h1>
-        <p>{data.desc}</p>
-
-        <img
-          src={data.image2}
-          style={{ height: 300 }}
-          alt={`A scoop of ${data.name}`}
-        />
+      <div className="sm:basis-full mt-12 lg:mt-0 lg:basis-1/3 grow flex items-center">
+        <div>
+          <h1 className="text-5xl font-bold Alatsi">{data.name}</h1>
+          <p className="text-2xl Alatsi">{data.desc}</p>
+          <img
+            className="w-full hidden lg:block"
+            src={data.image2}
+            style={{ height: 400, objectFit: "cover", borderRadius: 10 }}
+            alt={`A scoop of ${data.name}`}
+          />
+        </div>
       </div>
 
-      <div className="sm:basis-full lg:basis-1/3 grow flex items-end -mb-8">
+      <div className="sm:basis-full lg:basis-1/3 flex items-end -mb-8">
         <img
           src={data.image}
           alt={`A scoop of ${data.name}`}
-          className="rotate-90 md:rotate-0"
+          className="rotate-90 lg:w-full main-image lg:rotate-0 lg:h-5/6 lg:object-cover"
         />
       </div>
 
-      <div className="sm:basis-full lg:basis-1/3 grow">
-        {data.ingredients.map((item: Ingredient) => (
-          <div key={item.desc}>
-            <p>{item.desc}</p>
-            <img src={item.icon} style={{ height: 75 }} alt={`${item.desc}`} />
-          </div>
-        ))}
+      <div className="sm:basis-full lg:basis-1/3 grow flex items-center">
+        <div>
+          {data.ingredients.map((item: Ingredient) => (
+            <div key={item.desc}>
+              <p>{item.desc}</p>
+              <img
+                src={item.icon}
+                style={{ height: 75 }}
+                alt={`${item.desc}`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
