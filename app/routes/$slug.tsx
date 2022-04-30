@@ -62,10 +62,10 @@ export default function PostSlug() {
     <div className="flex flex-row flex-wrap w-full">
       <div className="sm:basis-full mt-12 lg:mt-0 lg:basis-1/3 grow flex items-center">
         <div>
-          <h1 className="text-3xl mb-2 sm:text-5xl font-bold Alatsi">
+          <h1 className="text-4xl mb-2 sm:text-5xl font-bold Alatsi">
             {data.name}
           </h1>
-          <p className="text-2xl mb-2 Alatsi">{data.desc}</p>
+          <p className="text-2xl md:text-3xl mb-2 Alatsi">{data.desc}</p>
           <img
             className="w-full hidden lg:block"
             src={data.image2}
@@ -104,7 +104,7 @@ export default function PostSlug() {
                   alt={`${item.desc}`}
                 />
               </div>
-              <p className="basis-2/3 lg:basis-7/12 text-xl sm:text-3xl Alatsi">
+              <p className="basis-2/3 lg:basis-7/12 text-2xl sm:text-3xl Alatsi">
                 {item.desc}
               </p>
             </div>
