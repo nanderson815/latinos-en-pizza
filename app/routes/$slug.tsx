@@ -69,7 +69,7 @@ export default function PostSlug() {
           <img
             className="w-full hidden lg:block"
             src={data.image2}
-            style={{ height: 400, objectFit: "cover", borderRadius: 10 }}
+            style={{ height: 500, objectFit: "cover", borderRadius: 10 }}
             alt={`A scoop of ${data.name}`}
           />
         </div>

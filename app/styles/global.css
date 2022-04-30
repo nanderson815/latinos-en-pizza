@@ -9,8 +9,12 @@
 .card {
     background: white;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 10px;
-    min-height: 65vh;
+}
+.main-content {
+    min-height: 53vh;
 }
 
 .line {
