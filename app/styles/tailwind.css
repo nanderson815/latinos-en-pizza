@@ -511,12 +511,32 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 3rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
 }
 
 .hidden {
   display: none;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.h-28 {
+  height: 7rem;
 }
 
 .w-40 {
@@ -527,12 +547,44 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
+.w-20 {
+  width: 5rem;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.w-28 {
+  width: 7rem;
+}
+
 .max-w-screen-2xl {
   max-width: 1536px;
 }
 
 .grow {
   flex-grow: 1;
+}
+
+.basis-1\/3 {
+  flex-basis: 33.333333%;
+}
+
+.basis-2\/3 {
+  flex-basis: 66.666667%;
+}
+
+.basis-1\/2 {
+  flex-basis: 50%;
+}
+
+.basis-1\/6 {
+  flex-basis: 16.666667%;
+}
+
+.basis-7\/12 {
+  flex-basis: 58.333333%;
 }
 
 .rotate-90 {
@@ -548,6 +600,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-wrap: wrap;
 }
 
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
 .items-end {
   align-items: flex-end;
 }
@@ -556,20 +612,50 @@ Ensure the default browser behavior of the `hidden` attribute.
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
 
-.p-8 {
-  padding: 2rem;
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .p-2 {
   padding: 0.5rem;
 }
 
-.p-4 {
-  padding: 1rem;
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .text-5xl {
@@ -580,6 +666,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold {
@@ -597,8 +698,40 @@ Ensure the default browser behavior of the `hidden` attribute.
     top: -0.5rem;
   }
 
+  .sm\:-ml-20 {
+    margin-left: -5rem;
+  }
+
+  .sm\:-ml-10 {
+    margin-left: -2.5rem;
+  }
+
+  .sm\:block {
+    display: block;
+  }
+
+  .sm\:hidden {
+    display: none;
+  }
+
+  .sm\:h-28 {
+    height: 7rem;
+  }
+
+  .sm\:h-24 {
+    height: 6rem;
+  }
+
   .sm\:w-52 {
     width: 13rem;
+  }
+
+  .sm\:w-28 {
+    width: 7rem;
+  }
+
+  .sm\:w-24 {
+    width: 6rem;
   }
 
   .sm\:basis-full {
@@ -608,11 +741,49 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:p-8 {
     padding: 2rem;
   }
+
+  .sm\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:-ml-10 {
+    margin-left: -2.5rem;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:basis-7\/12 {
+    flex-basis: 58.333333%;
+  }
 }
 
 @media (min-width: 1024px) {
   .lg\:mt-0 {
     margin-top: 0px;
+  }
+
+  .lg\:-ml-10 {
+    margin-left: -2.5rem;
   }
 
   .lg\:block {
@@ -631,9 +802,17 @@ Ensure the default browser behavior of the `hidden` attribute.
     flex-basis: 33.333333%;
   }
 
+  .lg\:basis-7\/12 {
+    flex-basis: 58.333333%;
+  }
+
   .lg\:rotate-0 {
     --tw-rotate: 0deg;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .lg\:justify-between {
+    justify-content: space-between;
   }
 
   .lg\:object-cover {

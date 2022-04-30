@@ -10,7 +10,14 @@
     background: white;
     display: flex;
     border-radius: 10px;
-    min-height: 70vh;
+    min-height: 65vh;
+}
+
+.line {
+    width: 53px;
+    height: 0;
+    margin: 3px;
+    display: inline-block;
 }
 
 .Alatsi {
