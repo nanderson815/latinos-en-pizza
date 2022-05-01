@@ -3,6 +3,7 @@ import { useLoaderData, useOutletContext } from "@remix-run/react";
 import type { LoaderFunction } from "@remix-run/node";
 import { getFlavor, getImageUrl } from "~/utilities";
 import type { DocumentData } from "firebase/firestore";
+import { useEffect } from "react";
 
 export interface Flavor {
   id: string;
@@ -45,11 +46,23 @@ export const loader: LoaderFunction = async ({ params }) => {
 
 export default function PostSlug() {
   const { data }: { data: Flavor } = useLoaderData();
+  const context: {
+    data: Flavor[];
+    handleSetFlavorData: (data: Flavor, prev: string, next: string) => null;
+  } = useOutletContext();
 
-  const context = useOutletContext();
-  console.log(context);
+  useEffect(() => {
+    const index = context.data.findIndex((val) => val.id === data.id);
+    const length = context.data.length;
 
-  console.log(data);
+    const prevIndex = index - 1 < 0 ? length - 1 : index - 1;
+    const nextIndex = index + 1 >= length ? 0 : index + 1;
+
+    const prevLink = context.data[prevIndex].id;
+    const nextLink = context.data[nextIndex].id;
+
+    context.handleSetFlavorData(data, prevLink, nextLink);
+  }, [data]);
 
   if (!data) {
     return (

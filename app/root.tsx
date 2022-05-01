@@ -4,6 +4,7 @@ import { redirect } from "@remix-run/node";
 import styles from "./styles/global.css";
 import tailwind from "./styles/tailwind.css";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -33,6 +34,7 @@ export function links() {
 }
 
 interface Flavor {
+  id: string;
   name: string;
   desc: string;
   image: string;
@@ -53,12 +55,24 @@ export const loader: LoaderFunction = async ({ params }) => {
   if (!params.slug) {
     return redirect(data[0].id);
   }
-  return { data };
+  return { data: data };
 };
 
 export default function App() {
   const { data }: { data: Flavor[] } = useLoaderData();
-  const [flavorIndex, setFlavorIndex] = useState(0);
+  const [currentFlaver, setCurrentFlavor] = useState<Flavor>();
+  const [nextLink, setNextLink] = useState<string>("");
+  const [prevLink, setPrevLink] = useState<string>("");
+
+  const handleSetFlavorData = (flavor: Flavor, prev: string, next: string) => {
+    setCurrentFlavor(flavor);
+    setPrevLink(prev);
+    setNextLink(next);
+  };
+
+  // console.log(currentFlaver);
+  // console.log(nextLink);
+  // console.log(prevLink);
 
   return (
     <html lang="en">
@@ -70,7 +84,7 @@ export default function App() {
         <main
           className="main"
           style={{
-            backgroundImage: `linear-gradient(${data[flavorIndex].secondaryColor} 50%, ${data[flavorIndex].primaryColor} 50%)`,
+            backgroundImage: `linear-gradient(${currentFlaver?.secondaryColor} 50%, ${currentFlaver?.primaryColor} 50%)`,
           }}
         >
           <div className="relative">
@@ -97,17 +111,21 @@ export default function App() {
               <div className="flex main-content">
                 {/* Desktop nav */}
                 <div className="hidden md:flex items-center w-10 ml-2 mr-4 cursor-pointer">
-                  <img src={LeftArrow} alt="Navigate Left" />
+                  <Link to={`/${prevLink}`}>
+                    <img src={LeftArrow} alt="Navigate Left" />
+                  </Link>
                 </div>
                 {/* end desktop nav */}
 
                 {/* Main Content */}
-                <Outlet context={data[flavorIndex]} />
+                <Outlet context={{ data, handleSetFlavorData }} />
                 {/* Main Content End */}
 
                 {/* Desktop nav */}
                 <div className="hidden md:flex flex items-center w-10 ml-4 mr-2 cursor-pointer">
-                  <img src={RightArrow} alt="Navigate Right" />
+                  <Link to={`/${nextLink}`}>
+                    <img src={RightArrow} alt="Navigate Right" />
+                  </Link>
                 </div>
                 {/* end desktop nav */}
               </div>
@@ -115,20 +133,24 @@ export default function App() {
               {/* Mobile Nav */}
               <div className="md:hidden w-full flex justify-between items-center flex-row mt-8">
                 <div className="h-8 flex items-center">
-                  <img
-                    className="h-full inline-block"
-                    src={LeftArrow}
-                    alt="Navigate Left"
-                  />
-                  <p className="inline-block text-lg">Prev</p>
+                  <Link to={`/${prevLink}`}>
+                    <img
+                      className="h-full inline-block"
+                      src={LeftArrow}
+                      alt="Navigate Left"
+                    />
+                    <p className="inline-block text-lg">Prev</p>
+                  </Link>
                 </div>
                 <div className="h-8 flex items-center">
-                  <p className="inline-block text-lg">Next</p>
-                  <img
-                    className="h-full inline-block"
-                    src={RightArrow}
-                    alt="Navigate Right"
-                  />
+                  <Link to={`/${nextLink}`}>
+                    <p className="inline-block text-lg">Next</p>
+                    <img
+                      className="h-full inline-block"
+                      src={RightArrow}
+                      alt="Navigate Right"
+                    />
+                  </Link>
                 </div>
               </div>
               {/* End Mobile Nav */}

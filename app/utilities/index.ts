@@ -23,6 +23,7 @@ export const getFlavor = async (flavor: string | undefined) => {
     const docRef = doc(db, "flavors", flavor);
     const docSanp = await getDoc(docRef);
     const data = docSanp?.data();
+    const id = docSanp?.id;
     if (data) {
       const ingredientsSnap = await getDocs(
         collection(db, `flavors/${flavor}/ingredients`)
@@ -30,7 +31,7 @@ export const getFlavor = async (flavor: string | undefined) => {
       const ingredients: any[] = [];
       ingredientsSnap.forEach((doc) => ingredients.push(doc.data()));
 
-      return { ...data, ingredients };
+      return { ...data, id, ingredients };
     }
     return undefined;
   }
