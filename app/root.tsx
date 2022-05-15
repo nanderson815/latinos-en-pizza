@@ -111,7 +111,7 @@ export default function App() {
               <div className="flex main-content">
                 {/* Desktop nav */}
                 <div className="hidden md:flex items-center w-10 ml-2 mr-4 cursor-pointer">
-                  <Link prefetch="intent" to={`/${prevLink}`}>
+                  <Link prefetch="render" to={`/${prevLink}`}>
                     <img src={LeftArrow} alt="Navigate Left" />
                   </Link>
                 </div>
@@ -123,7 +123,7 @@ export default function App() {
 
                 {/* Desktop nav */}
                 <div className="hidden md:flex flex items-center w-10 ml-4 mr-2 cursor-pointer">
-                  <Link prefetch="intent" to={`/${nextLink}`}>
+                  <Link prefetch="render" to={`/${nextLink}`}>
                     <img src={RightArrow} alt="Navigate Right" />
                   </Link>
                 </div>
@@ -132,7 +132,7 @@ export default function App() {
 
               {/* Mobile Nav */}
               <div className="md:hidden w-full flex justify-between items-center flex-row mt-8">
-                <Link prefetch="intent" to={`/${prevLink}`}>
+                <Link prefetch="render" to={`/${prevLink}`}>
                   <div className="h-8 flex items-center">
                     <img
                       className="h-full inline-block"
@@ -142,7 +142,7 @@ export default function App() {
                     <p className="inline-block text-lg">Prev</p>
                   </div>
                 </Link>
-                <Link prefetch="intent" to={`/${nextLink}`}>
+                <Link prefetch="render" to={`/${nextLink}`}>
                   <div className="h-8 flex items-center">
                     <p className="inline-block text-lg">Next</p>
                     <img

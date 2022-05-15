@@ -37,6 +37,16 @@ export const getFlavor = async (flavor: string | undefined) => {
   }
 };
 
+export const getIngredients = async (flavor: string | undefined) => {
+  const ingredientsSnap = await getDocs(
+    collection(db, `flavors/${flavor}/ingredients`)
+  );
+  const ingredients: any[] = [];
+  ingredientsSnap.forEach((doc) => ingredients.push(doc.data()));
+
+  return { ingredients };
+};
+
 export const getImageUrl = async (location: string) => {
   return await getDownloadURL(ref(storage, location));
 };
