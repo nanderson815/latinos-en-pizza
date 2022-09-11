@@ -29,7 +29,7 @@ export const getFlavor = async (flavor: string | undefined) => {
         collection(db, `flavors/${flavor}/ingredients`)
       );
       const ingredients: any[] = [];
-      ingredientsSnap.forEach((doc) => ingredients.push(doc.data()));
+      ingredientsSnap.forEach((doc: any) => ingredients.push(doc.data()));
 
       return { ...data, id, ingredients };
     }
@@ -42,7 +42,7 @@ export const getIngredients = async (flavor: string | undefined) => {
     collection(db, `flavors/${flavor}/ingredients`)
   );
   const ingredients: any[] = [];
-  ingredientsSnap.forEach((doc) => ingredients.push(doc.data()));
+  ingredientsSnap.forEach((doc: any) => ingredients.push(doc.data()));
 
   return { ingredients };
 };

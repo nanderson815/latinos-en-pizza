@@ -3,23 +3,8 @@ import { useLoaderData, useOutletContext } from "@remix-run/react";
 import type { LoaderFunction } from "@remix-run/node";
 import { getFlavor, getImageUrl } from "~/utilities";
 import type { DocumentData } from "firebase/firestore";
-import { useEffect } from "react";
-
-export interface Flavor {
-  id: string;
-  name: string;
-  desc: string;
-  image: string;
-  image2: string;
-  primaryColor: string;
-  secondaryColor: string;
-  ingredients: Ingredient[];
-}
-
-interface Ingredient {
-  desc: string;
-  icon: string;
-}
+import { useEffect } from 'react';
+import { Ingredient, Flavor } from "../flavors";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const data: DocumentData | undefined = await getFlavor(params.slug);
@@ -52,16 +37,19 @@ export default function PostSlug() {
   } = useOutletContext();
 
   useEffect(() => {
-    const index = context.data.findIndex((val) => val.id === data.id);
-    const length = context.data.length;
+    if (data) {
 
-    const prevIndex = index - 1 < 0 ? length - 1 : index - 1;
-    const nextIndex = index + 1 >= length ? 0 : index + 1;
+      const index = context.data.findIndex((val) => val.id === data.id);
+      const length = context.data.length;
 
-    const prevLink = context.data[prevIndex].id;
-    const nextLink = context.data[nextIndex].id;
+      const prevIndex = index - 1 < 0 ? length - 1 : index - 1;
+      const nextIndex = index + 1 >= length ? 0 : index + 1;
 
-    context.handleSetFlavorData(data, prevLink, nextLink);
+      const prevLink = context.data[prevIndex].id;
+      const nextLink = context.data[nextIndex].id;
+
+      context.handleSetFlavorData(data, prevLink, nextLink);
+    }
   }, [data]);
 
   if (!data) {
