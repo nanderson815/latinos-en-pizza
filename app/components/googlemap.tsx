@@ -1,9 +1,13 @@
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { useState } from "react"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
+import { Location } from "~/data/locations"
 import { mapStyles } from "~/utilities/mapSettings"
+import Logo from "~/images/yom_logo_small.png";
+import Card from "./card"
 
 interface MapProps {
     children?: any
-    isMarkerShown?: boolean
+    locations?: Location[]
 }
 
 const defaultMapOptions = {
@@ -13,17 +17,50 @@ const defaultMapOptions = {
     styles: mapStyles
 }
 
-const GoogleMapComponent = withScriptjs(withGoogleMap(({ isMarkerShown }: MapProps) =>
-    <GoogleMap
-        options={defaultMapOptions}
-        defaultZoom={8}
-        defaultCenter={{ lat: -34.397, lng: 150.644 }}
-    >
-        {isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
-    </GoogleMap>
+const GoogleMapComponent = withScriptjs(withGoogleMap(({ locations }: MapProps) => {
+    const [visible, setVisible] = useState('')
+
+    const clearVisible = () => {
+        setVisible('')
+    }
+
+    const onClickHandler = (name: string) => {
+        // const element = document.getElementById(id)
+        // element.scrollIntoView({ block: 'center' })
+        setVisible(name)
+    }
+
+    const markers = locations?.map((location) => (
+        <Marker
+            key={location.name}
+            position={{ lat: location.lat, lng: location.long }}
+            onClick={() => onClickHandler(location.name)}
+            icon={Logo}
+        >
+            {visible === location.name && (
+                <InfoWindow onCloseClick={clearVisible}>
+                    <Card title={location.name} tags={location.tags}>
+                        <a href={`https://www.google.com/maps/search/?api=1&query=${location.address}`} className="text-blue-700 text-base" target="blank">
+                            {location.address}
+                        </a>
+                    </Card>
+                </InfoWindow>
+            )}
+        </Marker>
+
+    ))
+    return (
+        <GoogleMap
+            options={defaultMapOptions}
+            onClick={clearVisible}
+            defaultZoom={8}
+            defaultCenter={{ lat: 33.74636858126393, lng: -84.37079962883581 }}
+            zoom={7}
+        >
+            {locations && markers}
+        </GoogleMap>
+    )
+}
 ))
 
 export default GoogleMapComponent;
-
-// <MyMapComponent isMarkerShown />// Map with a Marker
-// <MyMapComponent isMarkerShown={false} />// Just only Map

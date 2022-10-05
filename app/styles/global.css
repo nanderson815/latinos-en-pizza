@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Oswald';
+    font-weight: normal;
+    font-style: normal;
+    src: url("/fonts/Oswald/Oswald-Regular.ttf") format('truetype');
+}
+
+body {
+    font-family: "Oswald";
+}
+
 .main {
     min-height: 100vh;
     display: flex;
@@ -13,6 +24,7 @@
     justify-content: space-between;
     border-radius: 10px;
 }
+
 .main-content {
     min-height: 53vh;
 }
@@ -22,10 +34,6 @@
     height: 0;
     margin: 3px;
     display: inline-block;
-}
-
-.Alatsi {
-    font-family: "Alatsi", Helvetica, sans-serif;
 }
 
 @media screen and (max-width: 500px) {
