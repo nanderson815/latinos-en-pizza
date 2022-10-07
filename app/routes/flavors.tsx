@@ -76,9 +76,9 @@ export default function Flavors() {
                 <div className="card max-w-screen-2xl p-4 sm:py-8 sm:px-0 relative overflow-hidden my-20 mx-8 shadow-2xl">
                     {/* Header */}
                     <header className="hidden lg:flex justify-end mx-12">
-                        <a href="https://www.yomicecream.com/wheretobuy">
+                        <Link to="/wheretobuy">
                             <p className="ml-8 text-2xl Alatsi">Where to Buy</p>
-                        </a>
+                        </Link>
                         <a href="https://www.yomicecream.com/events">
                             <p className="ml-8 text-2xl Alatsi">Events</p>
                         </a>

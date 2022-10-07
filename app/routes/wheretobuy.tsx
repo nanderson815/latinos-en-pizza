@@ -1,8 +1,8 @@
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { locations } from "~/data/locations";
-import GoogleMapComponent from "~/components/googlemap";
-import Header from "~/components/header";
+import GoogleMapComponent from "~/components/shared/googlemap";
+import Header from "~/components/shared/header";
 
 
 
