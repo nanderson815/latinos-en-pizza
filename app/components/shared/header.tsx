@@ -19,7 +19,7 @@ export default function Header() {
                     <div className="md:hidden flex justify-start md:w-0 md:flex-1 space-x-10 md:flex">
                         <a
                             href="#"
-                            className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent px-3 py-3 text-base font-medium hover:text-white shadow-sm hover:bg-indigo-700"
+                            className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent px-3 py-3 text-base font-medium hover:text-white shadow-sm hover:bg-blue-500"
                         >
                             <ShopIcon />
                         </a>
@@ -40,7 +40,7 @@ export default function Header() {
                         </a>
                         <a
                             href="#"
-                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-lightBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-500"
                         >
                             Sign up
                         </a>
@@ -48,7 +48,7 @@ export default function Header() {
                     <div className="md:hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                         <a
                             href="#"
-                            className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent bg-indigo-600 px-3 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                            className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent bg-lightBlue px-3 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-500"
                         >
                             <MenuIcon />
                         </a>

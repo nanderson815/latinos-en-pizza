@@ -40,7 +40,7 @@ const GoogleMapComponent = withScriptjs(withGoogleMap(({ locations }: MapProps) 
             {visible === location.name && (
                 <InfoWindow onCloseClick={clearVisible}>
                     <Card title={location.name} tags={location.tags}>
-                        <a href={`https://www.google.com/maps/search/?api=1&query=${location.address}`} className="text-blue-700 text-base" target="blank">
+                        <a href={`https://www.google.com/maps/search/?api=1&query=${location.address}`} className="text-blue text-base" target="blank">
                             {location.address}
                         </a>
                     </Card>
