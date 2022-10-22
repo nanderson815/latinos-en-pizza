@@ -3,6 +3,8 @@ import Hero from "~/components/home/hero";
 import CTA from "~/components/home/cts";
 import Section from "~/components/home/section";
 import Button from "~/components/shared/button";
+import Reviews from "~/components/home/reviews";
+import Footer from "~/components/shared/footer";
 
 export default function Home() {
     return (
@@ -30,6 +32,8 @@ export default function Home() {
                     </div>
                 </div>
             </Section>
+            <Reviews />
+            <Footer />
         </>
     )
 }
