@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
-import MenuIcon from "~/icons/menu";
 import ShopIcon from "~/icons/shop";
 import Logo from "~/images/logo.png";
+import NavDrawr from "./navDrawr";
 
 export default function Header() {
     return (
@@ -50,7 +50,7 @@ export default function Header() {
                             href="#"
                             className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent bg-lightBlue px-3 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-500"
                         >
-                            <MenuIcon />
+                            <NavDrawr />
                         </a>
                     </div>
                 </div>
