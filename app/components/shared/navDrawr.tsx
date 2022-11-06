@@ -15,8 +15,8 @@ export default function navDrawer() {
                 className={
                     " fixed overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " +
                     (isOpen
-                        ? " transition-opacity opacity-100 duration-500 translate-x-0  "
-                        : " transition-all delay-500 opacity-0 translate-x-full  ")
+                        ? " transition-opacity opacity-100 duration-500 translate-x-0 "
+                        : " transition-all opacity-0 translate-x-full  ")
                 }
             >
                 <div
@@ -35,7 +35,7 @@ export default function navDrawer() {
                                     <Link to="/wheretobuy" className="hover:underline ">Where to Buy</Link>
                                 </li>
                                 <li className="mb-2">
-                                    <a href="#" className="hover:underline ">About</a>
+                                    <Link to="/about" className="hover:underline">About</Link>
                                 </li>
                                 <li className="mb-2">
                                     <a href="#" className="hover:underline ">Book an Event</a>

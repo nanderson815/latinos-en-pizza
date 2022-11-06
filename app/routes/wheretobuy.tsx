@@ -1,19 +1,19 @@
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { locations } from "~/data/locations";
 import GoogleMapComponent from "~/components/shared/googlemap";
 import Header from "~/components/shared/header";
+import { GetLocations, Location } from "~/data/contentful";
 
 
 
 export const loader: LoaderFunction = async () => {
     const apiKey = process.env.GOOGLE_MAPS_SECRET
-    console.log(apiKey);
-    return { key: apiKey }
+    const locations: Location[] = await GetLocations();
+    return { key: apiKey, locations }
 };
 
 export default function WhereToBuy() {
-    const { key } = useLoaderData();
+    const { key, locations } = useLoaderData();
     return (
         <>
             <Header />

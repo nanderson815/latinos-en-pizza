@@ -35,14 +35,14 @@ export default function Header() {
                         </a>
                     </div>
                     <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-                        <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                            Sign in
-                        </a>
+                        <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                            About
+                        </Link>
                         <a
                             href="#"
                             className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-lightBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-500"
                         >
-                            Sign up
+                            Shop
                         </a>
                     </div>
                     <div className="md:hidden items-center justify-end md:flex md:flex-1 lg:w-0">
