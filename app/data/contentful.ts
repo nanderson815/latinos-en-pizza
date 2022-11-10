@@ -11,6 +11,29 @@ export interface Location {
     tags?: string[];
 }
 
+export interface ContentfulImage {
+    url: string;
+    description?: string;
+    fileName?: string;
+}
+
+export interface Ingredient {
+    name: string;
+    icon: ContentfulImage;
+}
+
+
+export interface Flavor {
+    id: string;
+    name: string;
+    description: string;
+    primaryColor: string;
+    secondaryColor: string;
+    primaryImage: ContentfulImage;
+    flavorImage: ContentfulImage;
+    ingredientsCollection: { items: Ingredient[] };
+}
+
 
 async function apiCall(query: string, variables?: any) {
     const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/master`;
@@ -25,7 +48,7 @@ async function apiCall(query: string, variables?: any) {
     return await fetch(fetchUrl, options)
 }
 
-export const GetLocations = async (): Promise<Location[]> => {
+export const getLocations = async (): Promise<Location[]> => {
     const query = `
     {
         storeLocationCollection {
@@ -42,4 +65,88 @@ export const GetLocations = async (): Promise<Location[]> => {
     const response = await apiCall(query);
     const json = await response.json();
     return json.data.storeLocationCollection.items;
+}
+
+export const getFlavors = async (): Promise<Flavor[]> => {
+    const query = `
+    {
+        flavorCollection {
+            items {
+                id
+                name
+                description
+                primaryColor
+                secondaryColor
+                primaryImage {
+                    url (transform: {
+                        height: 1200
+                        resizeStrategy: FILL
+                    })
+                }
+                flavorImage {
+                    url (transform: {
+                        height: 1200
+                        resizeStrategy: FILL
+                    })
+                }
+                ingredientsCollection {
+                    items {
+                        name
+                        icon {
+                            url
+                            description
+                            fileName
+                        }
+                    }
+                }
+            }
+        }
+    }`
+    const response = await apiCall(query);
+    const json = await response.json();
+    return json.data.flavorCollection.items;
+}
+
+export const getFlavor = async (id: string) => {
+    const query = `
+    query($id: String){
+        flavorCollection (where: {id: $id}) { 
+            items {
+                id
+                name
+                description
+                primaryColor
+                secondaryColor
+                primaryImage {
+                    url (transform: {
+                        height: 1200
+                        resizeStrategy: FILL
+                    })
+                }
+                flavorImage {
+                    url (transform: {
+                        height: 1200
+                        resizeStrategy: FILL
+                    })
+                }
+                ingredientsCollection {
+                    items {
+                        name
+                        icon {
+                            url
+                            description
+                            fileName
+                        }
+                    }
+                }
+            }
+        }
+    }
+    `
+    const variables = {
+        id
+    };
+    const response = await apiCall(query, variables);
+    const json = await response.json();
+    return json.data.flavorCollection.items?.[0];
 }

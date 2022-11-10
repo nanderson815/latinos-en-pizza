@@ -5,36 +5,15 @@ import {
     Outlet,
     useLoaderData,
 } from "@remix-run/react";
-import type { DocumentData } from "firebase/firestore";
-import { getFlavors, getImageUrl } from "~/utilities";
 import Logo from "~/images/logo.png";
 
 import LeftArrow from "~/images/left-arrow.png";
 import RightArrow from "~/images/right-arrow.png";
-
-export interface Flavor {
-    id: string;
-    name: string;
-    desc: string;
-    image: string;
-    image2: string;
-    primaryColor: string;
-    secondaryColor: string;
-    ingredients: Ingredient[];
-}
-
-export interface Ingredient {
-    desc: string;
-    icon: string;
-}
+import { Flavor, getFlavors } from "~/data/contentful";
 
 export const loader: LoaderFunction = async () => {
-    let data: DocumentData = await getFlavors();
-    data = await Promise.all(data.map(async (flavor: Flavor) => {
-        const scoopUrl = await getImageUrl(flavor.image);
-        const secondaryImgUrl = await getImageUrl(flavor.image2);
-        return { ...flavor, image: scoopUrl, image2: secondaryImgUrl }
-    }))
+
+    const data: Flavor[] = await getFlavors();
     return { data };
 };
 

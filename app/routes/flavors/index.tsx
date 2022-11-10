@@ -1,5 +1,5 @@
 import { Link, useOutletContext } from "@remix-run/react";
-import { Flavor } from "../flavors";
+import { Flavor } from "~/data/contentful";
 
 export default function Flavors() {
     const context: {
@@ -16,8 +16,8 @@ export default function Flavors() {
                             <Link className="w-full" to={`/flavors/${flavor.id}`}>
                                 <img
                                     className="w-full lg:block"
-                                    src={flavor.image2}
-                                    style={{ height: 300, objectFit: "cover", borderRadius: 10 }}
+                                    src={flavor.primaryImage.url}
+                                    style={{ width: 600, height: 400, objectFit: "cover", borderRadius: 10 }}
                                     alt={`A scoop of ${flavor.name}`}
                                 />
                                 <h2 className="text-2xl text-center font-semibold" >{flavor.name}</h2>
