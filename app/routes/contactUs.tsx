@@ -13,7 +13,6 @@ export async function action({ request }: DataFunctionArgs) {
         body: new URLSearchParams(data).toString(),
     })
     console.log(resp);
-    alert(resp.body);
     return null;
 }
 
