@@ -41,7 +41,7 @@ export default function navDrawer() {
                                     <a href="#" className="hover:underline ">Book an Event</a>
                                 </li>
                                 <li className="mb-2">
-                                    <a href="#" className="hover:underline ">Contact</a>
+                                    <Link to="/contactUs" className="hover:underline ">Contact</Link>
                                 </li>
                             </ul>
                         </div>

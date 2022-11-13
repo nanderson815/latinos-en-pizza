@@ -4,7 +4,7 @@ import Logo from "~/images/logo.png";
 export default function Footer() {
     return (
 
-        <footer className="p-4 bg-[#CFE4CB] sm:p-6 max-w-screen-2xl mx-auto">
+        <footer className="p-4 bg-[#CFE4CB] sm:p-6 max-w-screen-2xl mx-auto w-[100vw]">
             <div className="md:flex md:justify-between">
                 <div className="mb-4 md:mb-0">
                     <div className="flex items-center">
@@ -20,7 +20,7 @@ export default function Footer() {
                                 <Link to="/about" className="hover:underline">About</Link>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="hover:underline">Contact</a>
+                                <Link to="/contactUs" className="hover:underline">Contact</Link>
                             </li>
                             <li className="mb-2">
                                 <Link to="/flavors" className="hover:underline">Flavors</Link>

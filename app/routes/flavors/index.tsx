@@ -17,7 +17,7 @@ export default function Flavors() {
                                 <img
                                     className="w-full lg:block"
                                     src={flavor.primaryImage.url}
-                                    style={{ width: 600, height: 400, objectFit: "cover", borderRadius: 10 }}
+                                    style={{ width: 600, height: 400, objectFit: "cover", borderRadius: 10, margin: "auto" }}
                                     alt={`A scoop of ${flavor.name}`}
                                 />
                                 <h2 className="text-2xl text-center font-semibold" >{flavor.name}</h2>

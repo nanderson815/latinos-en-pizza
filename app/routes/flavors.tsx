@@ -52,7 +52,7 @@ export default function Flavors() {
                         className="absolute left-0 right-0 top-8 sm:top-2 z-30 w-40 sm:w-52"
                     />
                 </Link>
-                <div className="card max-w-screen-2xl p-4 sm:py-8 sm:px-0 relative overflow-hidden my-20 mx-8 shadow-2xl">
+                <div className="card max-w-screen-2xl p-4 sm:py-8 relative overflow-hidden my-20 mx-8 shadow-2xl">
                     {/* Header */}
                     <header className="hidden lg:flex justify-end mx-12">
                         <Link to="/wheretobuy">
