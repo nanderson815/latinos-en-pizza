@@ -12,7 +12,8 @@ export async function action({ request }: DataFunctionArgs) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(data).toString(),
     })
-    console.log(resp.body);
+    console.log(resp);
+    alert(resp.body);
     return null;
 }
 
@@ -24,7 +25,7 @@ export default function Contact() {
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">Contact Us</h2>
                     <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Have a question or feedback? Want YOM Ice Cream at your next event? We’d love to hear from you!</p>
-                    <form name="contact" method="POST" data-netlify="true" className="space-y-8" action="/?index">
+                    <form name="contact" method="POST" data-netlify="true" className="space-y-8">
                         <input type="hidden" name="form-name" value="contact"></input>
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
