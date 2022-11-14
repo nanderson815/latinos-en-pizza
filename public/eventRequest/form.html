@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<form name="eventRequest" method="POST" data-netlify="true" netlify>
+    <input type="hidden" name="form-name" value="eventRequest"></input>
+    <div>
+        <label htmlFor="subject">Your name</label>
+        <input type="text" name="name" id="subject" />
+    </div>
+    <div>
+        <label htmlFor="email">Your email</label>
+        <input name="email" type="email" id="email" />
+    </div>
+    <div>
+        <label htmlFor="tel">Your phone #</label>
+        <input name="tel" type="tel" id="tel" />
+    </div>
+    <div>
+        <label htmlFor="date">Your event date</label>
+        <input type="date" id="date" name="date">
+    </div>
+    <div>
+        <label htmlFor="attendees">Number of attendees</label>
+        <input type="number" id="attendees" name="attendees">
+    </div>
+    <div>
+        <label htmlFor="message">Your comments</label>
+        <textarea id="message" name="message" rows={6}></textarea>
+    </div>
+</form>
+
+</html>

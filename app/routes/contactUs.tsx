@@ -2,21 +2,20 @@ import Button from "~/components/shared/button";
 import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
 import type { DataFunctionArgs } from "@remix-run/node"
+import { useActionData } from "@remix-run/react";
 
 export async function action({ request }: DataFunctionArgs) {
     const data: any = await request.formData();
-    console.log(new URLSearchParams(data).toString());
-    console.log(request.url);
     const resp = await fetch(`${request.url}/form`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(data).toString(),
     })
-    console.log(resp);
-    return null;
+    return resp.ok;
 }
 
 export default function Contact() {
+    const actionData = useActionData();
     return (
         <div className="flex flex-col justify-between h-[100vh]">
             <Header />
@@ -38,6 +37,13 @@ export default function Contact() {
                             <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900">Your message</label>
                             <textarea id="message" name="message" rows={6} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500" placeholder="Leave a comment..." required></textarea>
                         </div>
+                        {actionData && <div className="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
+                            <span className="font-medium">Success!</span> Thanks for contacting YOM Ice Cream.
+                        </div>}
+                        {actionData === false &&
+                            <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
+                                <span className="font-medium">Something went wrong!</span> Please try again.
+                            </div>}
                         <Button type="submit" text="Send Message" />
                     </form>
                 </div>

@@ -28,7 +28,7 @@ export default function Home() {
                         <div className="p-5 md:p-8 flex-initial w-64 md:w-96">
                             <h1 className="text-2xl md:text-5xl text-center text-grey">Hosting an event? We’ll help you make it a party to remember!</h1>
                         </div>
-                        <Button text="Submit Request" color="bg-lemon" disabled />
+                        <Button text="Submit Request" color="bg-lemon" to="/eventRequest" />
                     </div>
                 </div>
             </Section>

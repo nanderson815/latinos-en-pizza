@@ -26,7 +26,7 @@ export default function Footer() {
                                 <Link to="/flavors" className="hover:underline">Flavors</Link>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="hover:underline">Book an Event</a>
+                                <Link to="/eventRequest" className="hover:underline">Book an Event</Link>
                             </li>
                         </ul>
                     </div>
