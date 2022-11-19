@@ -23,6 +23,18 @@
         <input type="number" id="attendees" name="attendees">
     </div>
     <div>
+        <label htmlFor="type">Event type*</label>
+        <input type="text" id="type" name="type" placeholder="First Last" required />
+    </div>
+    <div>
+        <label htmlFor="location">Event address*</label>
+        <input type="text" id="location" name="location" placeholder="123 Main Street" required />
+    </div>
+    <div>
+        <label htmlFor="zip">Location zip code*</label>
+        <input type="text" pattern="[0-9]{5}" id="zip" name="zip" placeholder="30303" required />
+    </div>
+    <div>
         <label htmlFor="message">Your comments</label>
         <textarea id="message" name="message" rows={6}></textarea>
     </div>

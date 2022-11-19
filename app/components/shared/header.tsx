@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import ShopIcon from "~/icons/shop";
 import Logo from "~/images/logo.png";
+import Button from "./button";
 import NavDrawr from "./navDrawr";
 
 export default function Header() {
@@ -35,15 +36,10 @@ export default function Header() {
                         </a>
                     </div>
                     <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-                        <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                        <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900 mr-4">
                             About
                         </Link>
-                        <a
-                            href="#"
-                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-lightBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-500"
-                        >
-                            Shop
-                        </a>
+                        <Button disabled text="Shop"/>
                     </div>
                     <div className="md:hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                         <a

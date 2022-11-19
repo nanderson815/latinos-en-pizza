@@ -34,13 +34,13 @@ export default function Footer() {
                         <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
                         <ul className="text-gray-600">
                             <li className="mb-2">
-                                <a href="#" className="hover:underline ">Press</a>
+                                <Link to="/press" className="hover:underline">Press</Link>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="hover:underline ">Careers</a>
+                                <Link to="/careers" className="hover:underline">Careers</Link>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="hover:underline ">Buy Online</a>
+                                <Link to="/#" className="hover:underline pointer-events-none" onClick={e => e.preventDefault()} aria-disabled>Buy Online</Link>
                             </li>
                             <li className="mb-2">
                                 <Link to="/wheretobuy" className="hover:underline ">Find in Store</Link>
