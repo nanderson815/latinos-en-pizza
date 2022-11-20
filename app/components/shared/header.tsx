@@ -26,18 +26,21 @@ export default function Header() {
                         </a>
                     </div>
                     <div className="space-x-10 md:flex">
-                        <a href="/">
+                        <Link to="/">
                             <span className="sr-only">YOM Ice Cream</span>
                             <img
                                 className="md:h-20 h-14 w-auto"
                                 src={Logo}
                                 alt="YOM ice cream logo"
                             />
-                        </a>
+                        </Link>
                     </div>
-                    <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-                        <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900 mr-4">
+                    <div className="hidden items-center justify-end space-x-10 md:flex md:flex-1 lg:w-0">
+                        <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             About
+                        </Link>
+                        <Link to="/events" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                            Events
                         </Link>
                         <Button disabled text="Shop"/>
                     </div>

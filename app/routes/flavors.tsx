@@ -58,9 +58,9 @@ export default function Flavors() {
                         <Link to="/wheretobuy">
                             <p className="ml-8 text-2xl Alatsi">Where to Buy</p>
                         </Link>
-                        <a href="https://www.yomicecream.com/events">
+                        <Link to="/events">
                             <p className="ml-8 text-2xl Alatsi">Events</p>
-                        </a>
+                        </Link>
                         <Link to="/flavors"><p className="ml-8 text-2xl Alatsi">Flavors</p></Link>
                     </header>
                     {/* Header End */}

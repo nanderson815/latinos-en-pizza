@@ -11,6 +11,14 @@ export interface Location {
     tags?: string[];
 }
 
+export interface ContenfulEvent {
+    title: string;
+    startTime: string;
+    endTime: string;
+    image: ContentfulImage;
+    description: any;
+}
+
 export interface ContentfulImage {
     url: string;
     description?: string;
@@ -21,7 +29,6 @@ export interface Ingredient {
     name: string;
     icon: ContentfulImage;
 }
-
 
 export interface Flavor {
     id: string;
@@ -46,6 +53,29 @@ async function apiCall(query: string, variables?: any) {
         body: JSON.stringify({ query, variables }),
     }
     return await fetch(fetchUrl, options)
+}
+
+export const getEvents = async (): Promise<ContenfulEvent[]> => {
+    const query = `
+    {
+        eventCollection {
+            items {
+                title
+                startTime
+                endTime
+                description {
+                    json
+                }
+                image {
+                    url
+                }
+            }
+        }
+    }
+    `
+    const response = await apiCall(query);
+    const json = await response.json();
+    return json.data.eventCollection.items;
 }
 
 export const getLocations = async (): Promise<Location[]> => {

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 import { Location } from "~/data/contentful"
 import { mapStyles } from "~/utilities/mapSettings"
-import Logo from "~/images/yom_logo_small.png";
+import Logo from "~/images/yomConeSmall.png";
 import Card from "./card"
 
 interface MapProps {

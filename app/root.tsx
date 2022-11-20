@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import styles from "./styles/global.css";
+import calendar from "./styles/calendar.css";
 import tailwind from "./styles/tailwind.css";
 import {
   Link,
@@ -22,6 +23,7 @@ export function links() {
   return [
     { rel: "stylesheet", href: styles },
     { rel: "stylesheet", href: tailwind },
+    { rel: "stylesheet", href: calendar },
   ];
 }
 
