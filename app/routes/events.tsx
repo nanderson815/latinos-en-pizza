@@ -39,7 +39,7 @@ export default function Events() {
 
 
     return (
-        <div className="flex flex-col justify-between h-[100vh]">
+        <div className="flex flex-col justify-between">
             <Header />
             <section className="bg-white h-full">
                 <div className="py-8 lg:py-8 px-4 mx-auto max-w-screen-xl">
