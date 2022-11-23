@@ -33,7 +33,7 @@ const GoogleMapComponent = withScriptjs(withGoogleMap(({ locations }: MapProps) 
     const markers = locations?.map((location) => (
         <Marker
             key={location.name}
-            position={{ lat: location.lat, lng: location.long }}
+            position={{ lat: location.location.lat, lng: location.location.lon }}
             onClick={() => onClickHandler(location.name)}
             icon={Logo}
         >

@@ -5,8 +5,10 @@ const TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN
 
 export interface Location {
     name: string;
-    lat: number;
-    long: number;
+    location: {
+        lat: number;
+        lon: number;
+    }
     address: string;
     tags?: string[];
 }
@@ -15,6 +17,8 @@ export interface ContenfulEvent {
     title: string;
     startTime: string;
     endTime: string;
+    streetAddress: string;
+
     image: ContentfulImage;
     description: any;
 }
@@ -63,6 +67,7 @@ export const getEvents = async (): Promise<ContenfulEvent[]> => {
                 title
                 startTime
                 endTime
+                streetAddress
                 description {
                     json
                 }
@@ -86,8 +91,10 @@ export const getLocations = async (): Promise<Location[]> => {
                 tags
                 name
                 address
-                lat
-                long
+                location {
+                    lat
+                    lon
+                }
             }
         }
     }
