@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import {
     Link,
     Outlet,
@@ -10,6 +10,14 @@ import Logo from "~/images/logo.png";
 import LeftArrow from "~/images/left-arrow.png";
 import RightArrow from "~/images/right-arrow.png";
 import { Flavor, getFlavors } from "~/data/contentful";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "YOM Ice Cream | Flavors",
+        description: "YOM Icea cream flavors, made with farm fresh ingredients."
+    }
+}
+
 
 export const loader: LoaderFunction = async () => {
 

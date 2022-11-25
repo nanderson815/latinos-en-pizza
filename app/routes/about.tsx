@@ -2,7 +2,13 @@ import Header from "~/components/shared/header";
 import Footer from "~/components/shared/footer";
 import Simon from 'public/images/simon.jpg'
 import William from 'public/images/william.jpg'
+import { MetaFunction } from "@remix-run/node";
 
+export const meta: MetaFunction = () => {
+    return {
+        title: "YOM Ice Cream | About",
+    }
+}
 
 export default function About() {
     return (

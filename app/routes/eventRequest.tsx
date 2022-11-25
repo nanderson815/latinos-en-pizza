@@ -1,10 +1,17 @@
-import { DataFunctionArgs, redirect } from "@remix-run/node";
+import { DataFunctionArgs, MetaFunction, redirect } from "@remix-run/node";
 import { useActionData } from "@remix-run/react";
 import { useEffect } from "react";
 import Button from "~/components/shared/button";
 import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
 import { formatDate } from "~/utilities/general";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "YOM Ice Cream | Caterying",
+        description: "Serve YOM Ice Cream at your next event with YOM catering!"
+    }
+}
 
 export async function action({ request }: DataFunctionArgs) {
     const data: any = await request.formData();

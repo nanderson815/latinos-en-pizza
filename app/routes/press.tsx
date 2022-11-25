@@ -1,7 +1,13 @@
+import { MetaFunction } from "@remix-run/node";
 import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
 
-
+export const meta: MetaFunction = () => {
+    return {
+        title: "YOM Ice Cream | Press",
+        description: "See what people are saying about YOM Ice Cream"
+    }
+}
 
 export default function Press() {
     return (

@@ -1,5 +1,13 @@
+import { MetaFunction } from "@remix-run/node";
 import { Link, useOutletContext } from "@remix-run/react";
 import { Flavor } from "~/data/contentful";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "YOM Ice Cream | Flavors",
+        description: "YOM Ice Cream has lots of delicious flavors, made with fresh  in Atlanta, Georgia."
+    }
+}
 
 export default function Flavors() {
     const context: {

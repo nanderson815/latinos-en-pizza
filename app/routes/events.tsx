@@ -1,4 +1,4 @@
-import { LoaderFunction } from "@remix-run/node";
+import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
@@ -9,6 +9,13 @@ import listPlugin from '@fullcalendar/list';
 import { useState } from "react";
 import Modal from "~/components/shared/modal";
 import { useIsMobile } from "~/utilities/utilities";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "YOM Ice Cream | Events",
+        description: "Check out upcoming events that will have YOM Ice Cream"
+    }
+}
 
 export const loader: LoaderFunction = async () => {
     const apiKey = process.env.GOOGLE_MAPS_SECRET

@@ -1,7 +1,23 @@
 import { useLoaderData, useOutletContext } from "@remix-run/react";
-import type { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useEffect } from 'react';
 import { Flavor, getFlavor, Ingredient } from "~/data/contentful";
+
+export const meta: MetaFunction = ({ data }) => {
+  if (!data) {
+    return {
+      title: "YOM Ice Cream | Flavors",
+      description: "YOM Ice Cream has lots of delicious flavors, made with fresh  in Atlanta, Georgia."
+    }
+  } else {
+    console.log(data);
+    return {
+      title: `YOM Ice Cream | ${data.data?.name}`,
+      image: data.data?.primaryImage?.url,
+      description: data?.data?.description,
+    }
+  }
+}
 
 export const loader: LoaderFunction = async ({ params }) => {
   const data: Flavor | undefined = await getFlavor(params.slug || "");

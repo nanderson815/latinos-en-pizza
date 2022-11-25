@@ -1,8 +1,15 @@
 import Button from "~/components/shared/button";
 import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
-import type { DataFunctionArgs } from "@remix-run/node"
+import type { DataFunctionArgs, MetaFunction } from "@remix-run/node"
 import { useActionData } from "@remix-run/react";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "YOM Ice Cream | Contact",
+        description: "Contact us"
+    }
+}
 
 export async function action({ request }: DataFunctionArgs) {
     const data: any = await request.formData();
