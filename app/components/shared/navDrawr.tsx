@@ -26,26 +26,26 @@ export default function navDrawer() {
                     }
                 >
                     <div className="relative max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full">
-                        <div className="p-4 font-bold text-lg text-gray-900">
+                        <div className="p-4 font-bold text-2xl text-gray-900">
                             <ul className="text-gray-600" onClick={() => {
                                 setIsOpen(false);
                             }}>
-                                <li className="mb-2">
+                                <li className="mb-4">
                                     <Link to="/flavors" className="hover:underline">Flavors</Link>
                                 </li>
-                                <li className="mb-2">
+                                <li className="mb-4">
                                     <Link to="/wheretobuy" className="hover:underline ">Where to Buy</Link>
                                 </li>
-                                <li className="mb-2">
+                                <li className="mb-4">
                                     <Link to="/about" className="hover:underline">About</Link>
                                 </li>
-                                <li className="mb-2">
+                                <li className="mb-4">
                                     <Link to="/events" className="hover:underline">Upcoming Events</Link>
                                 </li>
-                                <li className="mb-2">
+                                <li className="mb-4">
                                     <Link to="/eventRequest" className="hover:underline">Book an Event</Link>
                                 </li>
-                                <li className="mb-2">
+                                <li className="mb-4">
                                     <Link to="/contactUs" className="hover:underline ">Contact</Link>
                                 </li>
                             </ul>
