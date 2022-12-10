@@ -10,6 +10,7 @@ export interface Location {
         lon: number;
     }
     address: string;
+    phone: string;
     tags?: string[];
 }
 
@@ -18,8 +19,8 @@ export interface ContenfulEvent {
     startTime: string;
     endTime: string;
     streetAddress: string;
-
-    image: ContentfulImage;
+    locationName: string;
+    image?: ContentfulImage;
     description: any;
 }
 
@@ -68,6 +69,7 @@ export const getEvents = async (): Promise<ContenfulEvent[]> => {
                 startTime
                 endTime
                 streetAddress
+                locationName
                 description {
                     json
                 }
@@ -91,6 +93,7 @@ export const getLocations = async (): Promise<Location[]> => {
                 tags
                 name
                 address
+                phone
                 location {
                     lat
                     lon

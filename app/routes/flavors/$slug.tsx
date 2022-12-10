@@ -92,7 +92,7 @@ export default function PostSlug() {
               ></div>
               <div
                 style={{ backgroundColor: data.secondaryColor }}
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-black flex justify-center items-center"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-black flex justify-center items-center md:mx-2"
               >
                 <img
                   src={item.icon?.url}

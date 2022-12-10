@@ -18,9 +18,10 @@ export default function Header() {
                         </Link>
                     </div>
                     <div className="md:hidden flex justify-start md:w-0 md:flex-1 space-x-10 md:flex">
+                        {/* TODO: enable shop */}
                         <a
                             href="#"
-                            className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent px-3 py-3 text-base font-medium hover:text-white shadow-sm hover:bg-blue-500"
+                            className="hidden rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent px-3 py-3 text-base font-medium hover:text-white shadow-sm hover:bg-blue-500"
                         >
                             <ShopIcon />
                         </a>
@@ -42,7 +43,8 @@ export default function Header() {
                         <Link to="/events" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             Events
                         </Link>
-                        <Button disabled text="Shop"/>
+                        {/* TODO: enable shop */}
+                        <Button disabled text="Shop" style={{ display: 'none' }} />
                     </div>
                     <div className="md:hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                         <a

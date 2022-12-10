@@ -11,7 +11,8 @@ export default function CTA() {
             </div>
             <div className="flex space-x-2 justify-center">
                 <Button text="Find Locations" to="/wheretobuy" />
-                <Button text="Shop Online" disabled />
+                {/* TODO: enable shop */}
+                <Button text="Shop Online" disabled style={{ display: "none" }} />
             </div>
         </div>
 

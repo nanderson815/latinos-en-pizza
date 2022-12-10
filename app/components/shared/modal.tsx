@@ -45,10 +45,14 @@ export default function Modal({ open, setOpen, eventData }: { open: boolean, set
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-md text-gray-500">
-                                                    <a href={`https://www.google.com/maps/search/?api=1&query=${eventData.streetAddress}`} className="text-blue text-base" target="blank">
+                                                    <p className='text-base'>{eventData.locationName}</p>
+                                                    <a href={`https://www.google.com/maps/search/?api=1&query=${eventData.streetAddress}`} className="text-blue-400 text-base" target="blank">
                                                         {eventData.streetAddress}
                                                     </a>
                                                 </p>
+                                            </div>
+                                            <div className="mt-4">
+                                                <img src={eventData?.image?.url} className="w-full h-auto mb-4"/>
                                             </div>
                                             <div className="mt-4">
                                                 <p className="text-sm text-gray-500">

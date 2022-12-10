@@ -39,7 +39,8 @@ export default function Footer() {
                             <li className="mb-2">
                                 <Link to="/careers" className="hover:underline">Careers</Link>
                             </li>
-                            <li className="mb-2">
+                           {/* TODO: enable shop */}
+                            <li className="mb-2 hidden">
                                 <Link to="/#" className="hover:underline pointer-events-none" onClick={e => e.preventDefault()} aria-disabled>Buy Online</Link>
                             </li>
                             <li className="mb-2">

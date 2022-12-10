@@ -1,8 +1,14 @@
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { useEffect, useState } from "react";
 import GoogleMapComponent from "~/components/shared/googlemap";
 import Header from "~/components/shared/header";
 import { getLocations, Location } from "~/data/contentful";
+
+export interface UserLocation {
+    lat: number;
+    lng: number;
+}
 
 export const meta: MetaFunction = () => {
     return {
@@ -19,6 +25,21 @@ export const loader: LoaderFunction = async () => {
 
 export default function WhereToBuy() {
     const { key, locations } = useLoaderData();
+    const [userLocation, setUserLocation] = useState<UserLocation>();
+    const [zoom, setZoom] = useState<number>(8);
+
+    useEffect(() => {
+        if (window?.navigator?.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(function (position) {
+                console.log(position);
+                setUserLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
+                setZoom(13);
+            });
+        } else {
+            console.log('Geolocation is not supported by your browser');
+        }
+    }, [])
+
     return (
         <>
             <Header />
@@ -27,6 +48,8 @@ export default function WhereToBuy() {
 
                     <GoogleMapComponent
                         locations={locations}
+                        userLocation={userLocation}
+                        zoom={zoom}
                         loadingElement={<div className="h-full" />}
                         containerElement={<div className="h-full w-full" />}
                         mapElement={<div className="h-full" />}
