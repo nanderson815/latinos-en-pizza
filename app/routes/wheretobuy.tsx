@@ -1,8 +1,10 @@
+import { useLoadScript } from "@react-google-maps/api";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import GoogleMapComponent from "~/components/shared/googlemap";
 import Header from "~/components/shared/header";
+import LoadingOverlay from "~/components/shared/loadingOverlay";
 import { getLocations, Location } from "~/data/contentful";
 
 export interface UserLocation {
@@ -26,15 +28,22 @@ export const loader: LoaderFunction = async () => {
 export default function WhereToBuy() {
     const { key, locations } = useLoaderData();
     const [userLocation, setUserLocation] = useState<UserLocation>();
+    const [userLocationLoading, setUserLocationLoading] = useState<boolean>(false);
     const [zoom, setZoom] = useState<number>(8);
+
+    const { isLoaded } = useLoadScript({ googleMapsApiKey: key, libraries: ['places'], });
+
 
     useEffect(() => {
         if (window?.navigator?.geolocation) {
-            window.navigator.geolocation.getCurrentPosition(function (position) {
-                console.log(position);
-                setUserLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
-                setZoom(13);
-            });
+            setUserLocationLoading(true);
+            window.navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    setUserLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
+                    setZoom(13);
+                    setUserLocationLoading(false);
+                },
+                () => setUserLocationLoading(false));
         } else {
             console.log('Geolocation is not supported by your browser');
         }
@@ -43,18 +52,18 @@ export default function WhereToBuy() {
     return (
         <>
             <Header />
-            <div className="flex space-x-2 justify-center mt-1" style={{ height: 'calc(100vh - 86px)', overflow: 'hidden' }}>
-                <div className="w-screen h-full max-w-screen-2xl">
-
-                    <GoogleMapComponent
-                        locations={locations}
-                        userLocation={userLocation}
-                        zoom={zoom}
-                        loadingElement={<div className="h-full" />}
-                        containerElement={<div className="h-full w-full" />}
-                        mapElement={<div className="h-full" />}
-                        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`}
-                    />
+            <div className="flex space-x-2 justify-center mt-1 h-[calc(100vh_-_82px)] md:h-[calc(100vh_-_110px)]" style={{ overflow: 'hidden' }}>
+                <div className="w-screen h-full max-w-screen-2xl relative">
+                    {userLocationLoading && <LoadingOverlay message="Loading location" />}
+                    {isLoaded &&
+                        <GoogleMapComponent
+                            locations={locations}
+                            userLocation={userLocation}
+                            setUserLocation={setUserLocation}
+                            zoom={zoom}
+                            setZoom={setZoom}
+                        />
+                    }
                 </div>
             </div>
         </>

@@ -21,13 +21,14 @@
     "@fullcalendar/timegrid": "^5.11.3",
     "@headlessui/react": "^1.7.4",
     "@netlify/functions": "^0.10.0",
+    "@react-google-maps/api": "^2.17.1",
     "@remix-run/netlify": "^1.4.0",
     "@remix-run/node": "^1.4.0",
     "@remix-run/react": "^1.4.0",
     "cross-env": "^7.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-google-maps": "^9.4.5"
+    "react-google-autocomplete": "^2.7.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.4.0",

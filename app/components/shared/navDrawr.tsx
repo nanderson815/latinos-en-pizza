@@ -13,7 +13,7 @@ export default function navDrawer() {
             </button>
             <div
                 className={
-                    " fixed overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " +
+                    " fixed overflow-hidden z-30 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " +
                     (isOpen
                         ? " transition-opacity opacity-100 duration-500 translate-x-0 "
                         : " transition-all opacity-0 translate-x-full  ")

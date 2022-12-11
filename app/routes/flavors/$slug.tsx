@@ -10,7 +10,7 @@ export const meta: MetaFunction = ({ data }) => {
       description: "YOM Ice Cream has lots of delicious flavors, made with fresh  in Atlanta, Georgia."
     }
   } else {
-    console.log(data);
+    // console.log(data);
     return {
       title: `YOM Ice Cream | ${data.data?.name}`,
       image: data.data?.primaryImage?.url,
