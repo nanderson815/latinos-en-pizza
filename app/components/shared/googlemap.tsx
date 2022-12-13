@@ -25,7 +25,6 @@ const defaultMapOptions = {
 
 const GoogleMapComponent = ({ locations, userLocation, setUserLocation, zoom, setZoom }: MapProps) => {
     const [visible, setVisible] = useState('')
-    const defaultCenter = { lat: 33.74636858126393, lng: -84.37079962883581 };
 
     const clearVisible = () => {
         setVisible('')
@@ -85,7 +84,7 @@ const GoogleMapComponent = ({ locations, userLocation, setUserLocation, zoom, se
                 mapContainerClassName="h-full w-full"
                 // @ts-ignore 
                 options={defaultMapOptions}
-                center={userLocation || defaultCenter}
+                center={userLocation}
                 zoom={zoom}
             >
                 {locations && markers}

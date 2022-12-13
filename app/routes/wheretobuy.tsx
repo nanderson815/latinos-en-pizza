@@ -39,13 +39,19 @@ export default function WhereToBuy() {
             setUserLocationLoading(true);
             window.navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    setUserLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
+                    setUserLocation({ lat: position.coords.latitude, lng: position.coords.longitude });
                     setZoom(13);
                     setUserLocationLoading(false);
                 },
-                () => setUserLocationLoading(false));
+                () => {
+                    setUserLocationLoading(false);
+                    setZoom(13);
+                    setUserLocation({ lat: 33.74636858126393, lng: -84.37079962883581 });
+                });
         } else {
             console.log('Geolocation is not supported by your browser');
+            setZoom(13);
+            setUserLocation({ lat: 33.74636858126393, lng: -84.37079962883581 });
         }
     }, [])
 
