@@ -31,6 +31,12 @@ const GoogleMapComponent = ({ locations, userLocation, setUserLocation, zoom, se
     }
 
     const { ref } = usePlacesWidget({
+        options: {
+            componentRestrictions: {
+                country: "us"
+            },
+            types: ["postal_code", "street_address", "locality", "neighborhood"],
+        },
         onPlaceSelected: (place) => {
             const lat = place.geometry?.location?.lat();
             const lng = place.geometry?.location?.lng();
