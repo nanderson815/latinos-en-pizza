@@ -81,7 +81,7 @@ const GoogleMapComponent = ({ locations, userLocation, setUserLocation, zoom, se
 
     return (
         <>
-            <div className="absolute w-full md:w-1/2 mx-auto mt-2 z-20 inset-x-0 px-1">
+            <div className="absolute w-full md:w-1/2 mx-auto mt-10 md:mt-16 z-20 inset-x-0 px-2">
                 {/* @ts-ignore */}
                 <input ref={ref} type="text" id="locationSearch" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="Search location..." />
             </div>

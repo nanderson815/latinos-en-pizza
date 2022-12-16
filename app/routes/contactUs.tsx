@@ -24,11 +24,15 @@ export async function action({ request }: DataFunctionArgs) {
 export default function Contact() {
     const actionData = useActionData();
     return (
-        <div className="flex flex-col justify-between h-[100vh]">
+        <div>
             <Header />
+            <div className="flex justify-center items-center h-[25rem] md:h-[35rem] max-w-screen-2xl mx-auto bg-hero4 bg-cover bg-bottom">
+                <div className="p-10">
+                    <h1 className="uppercase text-4xl md:text-6xl text-center text-white">Contact Us</h1>
+                </div>
+            </div>
             <section className="bg-white">
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">Contact Us</h2>
                     <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Have a question or feedback? Want YOM Ice Cream at your next event? We’d love to hear from you!</p>
                     <form name="contact" method="POST" data-netlify="true" className="space-y-8">
                         <input type="hidden" name="form-name" value="contact"></input>

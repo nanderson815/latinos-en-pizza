@@ -46,11 +46,15 @@ export default function Events() {
 
 
     return (
-        <div className="flex flex-col justify-between">
+        <div className="">
             <Header />
+            <div className="flex justify-center items-center h-[25rem] md:h-[35rem] max-w-screen-2xl mx-auto bg-hero3 bg-cover bg-bottom">
+                <div className="p-10">
+                    <h1 className="uppercase text-4xl md:text-6xl text-center text-white">Events</h1>
+                </div>
+            </div>
             <section className="bg-white h-full">
                 <div className="py-8 lg:py-8 px-4 mx-auto max-w-screen-xl">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">Upcoming Events</h2>
                     <Modal open={open} setOpen={setOpen} eventData={eventData} />
                     <FullCalendar
                         eventClick={onEventClick}
