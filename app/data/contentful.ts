@@ -24,6 +24,13 @@ export interface ContenfulEvent {
     description: any;
 }
 
+export interface Testimonial {
+    name: string;
+    quote: string;
+    accentColor: string;
+    backgroundColor: string;
+}
+
 export interface ContentfulImage {
     url: string;
     description?: string;
@@ -97,6 +104,24 @@ export const getEvents = async (): Promise<ContenfulEvent[]> => {
     const response = await apiCall(query);
     const json = await response.json();
     return json.data.eventCollection.items;
+}
+
+export const getTestimonials = async (): Promise<Testimonial[]> => {
+    const query = `
+    {
+        testimonialCollection {
+            items {
+                name
+                quote
+                accentColor
+                backgroundColor
+            }
+        }
+    }
+    `
+    const response = await apiCall(query);
+    const json = await response.json();
+    return json.data.testimonialCollection.items;
 }
 
 export const getLocations = async (): Promise<Location[]> => {

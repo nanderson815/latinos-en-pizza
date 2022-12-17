@@ -1,7 +1,5 @@
 import Header from "~/components/shared/header";
 import Footer from "~/components/shared/footer";
-import Simon from 'public/images/simon.jpg'
-import William from 'public/images/william.jpg'
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { AboutPage, getAboutPage } from "~/data/contentful";
 import { useLoaderData } from "@remix-run/react";

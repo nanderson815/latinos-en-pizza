@@ -5,8 +5,17 @@ import Section from "~/components/home/section";
 import Button from "~/components/shared/button";
 import Reviews from "~/components/home/reviews";
 import Footer from "~/components/shared/footer";
+import { LoaderFunction } from "@remix-run/node";
+import { getTestimonials, Testimonial } from "~/data/contentful";
+import { useLoaderData } from "@remix-run/react";
+
+export const loader: LoaderFunction = async () => {
+    const data: Testimonial[] = await getTestimonials();
+    return { data }
+};
 
 export default function Home() {
+    const { data }: { data: Testimonial[] } = useLoaderData();
     return (
         <>
             <Header />
@@ -32,7 +41,7 @@ export default function Home() {
                     </div>
                 </div>
             </Section>
-            <Reviews />
+            <Reviews reviews={data} />
             <Footer />
         </>
     )
