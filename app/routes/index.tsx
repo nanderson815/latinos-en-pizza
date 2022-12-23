@@ -1,3 +1,6 @@
+import { LoaderFunction } from "@remix-run/node";
+import { getTestimonials, Testimonial } from "~/data/contentful";
+import { useLoaderData } from "@remix-run/react";
 import Header from "~/components/shared/header";
 import Hero from "~/components/home/hero";
 import CTA from "~/components/home/cts";
@@ -5,9 +8,6 @@ import Section from "~/components/home/section";
 import Button from "~/components/shared/button";
 import Reviews from "~/components/home/reviews";
 import Footer from "~/components/shared/footer";
-import { LoaderFunction } from "@remix-run/node";
-import { getTestimonials, Testimonial } from "~/data/contentful";
-import { useLoaderData } from "@remix-run/react";
 
 export const loader: LoaderFunction = async () => {
     const data: Testimonial[] = await getTestimonials();

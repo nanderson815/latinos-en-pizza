@@ -24,6 +24,13 @@ export interface ContenfulEvent {
     description: any;
 }
 
+export interface Press {
+    title: string;
+    link: string;
+    description: string;
+    image: ContentfulImage;
+}
+
 export interface Testimonial {
     name: string;
     quote: string;
@@ -104,6 +111,26 @@ export const getEvents = async (): Promise<ContenfulEvent[]> => {
     const response = await apiCall(query);
     const json = await response.json();
     return json.data.eventCollection.items;
+}
+
+export const getPress = async (): Promise<Press[]> => {
+    const query = `
+    {
+        pressCollection {
+            items {
+                title
+                link
+                description
+                image {
+                    url
+                }
+            }
+        }
+    }
+    `
+    const response = await apiCall(query);
+    const json = await response.json();
+    return json.data.pressCollection.items;
 }
 
 export const getTestimonials = async (): Promise<Testimonial[]> => {

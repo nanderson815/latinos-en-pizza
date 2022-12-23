@@ -33,7 +33,7 @@ export default function About() {
                 <div>
                     <div className="flex flex-row flex-wrap my-8">
                         {data.foundersCollection.items.map((founder) => (
-                            <div className="md:basis-1/2 basis-full p-4">
+                            <div key={founder.name} className="md:basis-1/2 basis-full p-4">
                                 <img src={founder.headshot.url} className="w-full h-auto mb-4" />
                                 <h1 className="text-3xl md:text-5xl text-gray-800 text-center">{founder.name}</h1>
                                 <p className="text-xl text-center pt-4">{founder.about}</p>

@@ -7,6 +7,7 @@ module.exports = {
       'hero2': "url(/images/hero2.jpg)",
       'hero3': "url(/images/hero3.jpg)",
       'hero4': "url(/images/hero4.jpg)",
+      'hero5': "url(/images/hero5.jpg)",
       'vanilla': "url(/images/backgroundVanilla.jpg)",
       'pints': "url(/images/backgroundPints.jpg)"
     },
