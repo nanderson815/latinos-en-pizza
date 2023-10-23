@@ -173,46 +173,6 @@ export const getLocations = async (): Promise<Location[]> => {
     return json.data.storeLocationCollection.items;
 }
 
-export const getFlavors = async (): Promise<Flavor[]> => {
-    const query = `
-    {
-        flavorCollection {
-            items {
-                id
-                name
-                description
-                primaryColor
-                secondaryColor
-                primaryImage {
-                    url (transform: {
-                        height: 1200
-                        resizeStrategy: FILL
-                    })
-                }
-                flavorImage {
-                    url (transform: {
-                        height: 1200
-                        resizeStrategy: FILL
-                    })
-                }
-                ingredientsCollection {
-                    items {
-                        name
-                        icon {
-                            url
-                            description
-                            fileName
-                        }
-                    }
-                }
-            }
-        }
-    }`
-    const response = await apiCall(query);
-    const json = await response.json();
-    return json.data.flavorCollection.items;
-}
-
 export const getAboutPage = async (): Promise<AboutPage> => {
     const query = `
     {

@@ -3,7 +3,6 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     backgroundImage: {
-      'home-hero': "url(/images/homeHero.jpg)",
       'hero2': "url(/images/hero2.jpg)",
       'hero3': "url(/images/hero3.jpg)",
       'hero4': "url(/images/hero4.jpg)",
@@ -13,6 +12,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        primary: "#f4b860",
         lightBlue: "#6999D1",
         lemon: "#F6871F"
       },

@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import { useState } from "react";
 import MenuIcon from "~/icons/menu";
 
-export default function navDrawer() {
+export default function NavDrawer() {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
@@ -31,10 +31,7 @@ export default function navDrawer() {
                                 setIsOpen(false);
                             }}>
                                 <li className="mb-4">
-                                    <Link to="/flavors" className="hover:underline">Flavors</Link>
-                                </li>
-                                <li className="mb-4">
-                                    <Link to="/wheretobuy" className="hover:underline ">Where to Buy</Link>
+                                    <Link to="/locations" className="hover:underline ">Locations</Link>
                                 </li>
                                 <li className="mb-4">
                                     <Link to="/about" className="hover:underline">About</Link>

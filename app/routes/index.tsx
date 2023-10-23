@@ -1,5 +1,6 @@
-import { LoaderFunction } from "@remix-run/node";
-import { getTestimonials, Testimonial } from "~/data/contentful";
+import type { LoaderFunction } from "@remix-run/node";
+import type { Testimonial } from "~/data/contentful";
+import { getTestimonials } from "~/data/contentful";
 import { useLoaderData } from "@remix-run/react";
 import Header from "~/components/shared/header";
 import Hero from "~/components/home/hero";
@@ -27,7 +28,6 @@ export default function Home() {
                         <div className="p-5 md:p-8 flex-initial w-64 md:w-96">
                             <h1 className="text-2xl md:text-5xl text-center text-grey">We believe that the greatest pleasures in life are also the simplest.</h1>
                         </div>
-                        <Button text="Our Flavors" to="/flavors" />
                     </div>
                 </div>
             </Section>

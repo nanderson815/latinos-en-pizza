@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { GoogleMap, Marker, InfoWindow, } from "@react-google-maps/api"
-import { Location } from "~/data/contentful"
+import type { Location } from "~/data/contentful"
 import Logo from "~/images/yomConeSmall.png";
 import Card from "./card"
-import { UserLocation } from "~/routes/wheretobuy";
+import type { UserLocation } from "~/routes/locations";
 import { usePlacesWidget } from "react-google-autocomplete";
 import { mapStyles } from "~/utilities/mapSettings"
 

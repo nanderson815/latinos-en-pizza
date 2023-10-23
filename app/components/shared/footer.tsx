@@ -24,9 +24,6 @@ export default function Footer() {
                                     <Link to="/contactUs" className="hover:underline">Contact</Link>
                                 </li>
                                 <li className="mb-2">
-                                    <Link to="/flavors" className="hover:underline">Flavors</Link>
-                                </li>
-                                <li className="mb-2">
                                     <Link to="/eventRequest" className="hover:underline">Book an Event</Link>
                                 </li>
                             </ul>
@@ -38,14 +35,7 @@ export default function Footer() {
                                     <Link to="/press" className="hover:underline">Press</Link>
                                 </li>
                                 <li className="mb-2">
-                                    <Link to="/careers" className="hover:underline">Careers</Link>
-                                </li>
-                                {/* TODO: enable shop */}
-                                <li className="mb-2 hidden">
-                                    <Link to="/#" className="hover:underline pointer-events-none" onClick={e => e.preventDefault()} aria-disabled>Buy Online</Link>
-                                </li>
-                                <li className="mb-2">
-                                    <Link to="/wheretobuy" className="hover:underline ">Find in Store</Link>
+                                    <Link to="/locations" className="hover:underline ">Find in Store</Link>
                                 </li>
                             </ul>
                         </div>
