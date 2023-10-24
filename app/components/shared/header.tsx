@@ -15,7 +15,7 @@ export default function Header() {
                     </div>
                     <div className="space-x-10 md:flex">
                         <Link to="/">
-                            <span className="sr-only">YOM Ice Cream</span>
+                            <span className="sr-only">Latinos en Pizza</span>
                             <img
                                 src={Logo}
                                 alt="Latinos en pizza logo"

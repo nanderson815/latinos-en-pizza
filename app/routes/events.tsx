@@ -12,8 +12,8 @@ import { useIsMobile } from "~/utilities/utilities";
 
 export const meta: MetaFunction = () => {
     return {
-        title: "YOM Ice Cream | Events",
-        description: "Check out upcoming events that will have YOM Ice Cream"
+        title: "Latinos en Pizza | Events",
+        description: "Check out upcoming events for Latinos en Pizza"
     }
 }
 

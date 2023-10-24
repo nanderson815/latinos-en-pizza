@@ -1,7 +1,8 @@
 import Header from "~/components/shared/header";
 import Footer from "~/components/shared/footer";
-import { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { AboutPage, getAboutPage } from "~/data/contentful";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import type { AboutPage} from "~/data/contentful";
+import { getAboutPage } from "~/data/contentful";
 import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {

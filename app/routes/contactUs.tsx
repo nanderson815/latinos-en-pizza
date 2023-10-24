@@ -6,7 +6,7 @@ import { useActionData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
     return {
-        title: "YOM Ice Cream | Contact",
+        title: "Latinos en Pizza | Contact",
         description: "Contact us"
     }
 }
@@ -33,12 +33,12 @@ export default function Contact() {
             </div>
             <section className="bg-white">
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                    <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Have a question or feedback? Want YOM Ice Cream at your next event? We’d love to hear from you!</p>
+                    <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Have a question or feedback? We’d love to hear from you!</p>
                     <form name="contact" method="POST" data-netlify="true" className="space-y-8">
                         <input type="hidden" name="form-name" value="contact"></input>
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                            <input type="email" id="email" name="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="name@yomicecream.com" required />
+                            <input type="email" id="email" name="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="name@website.com" required />
                         </div>
                         <div>
                             <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-900">Subject</label>

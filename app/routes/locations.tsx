@@ -15,8 +15,7 @@ export interface UserLocation {
 
 export const meta: MetaFunction = () => {
   return {
-    title: "YOM Ice Cream | Where to Buy",
-    description: "Where to buy YOM Icea Cream in stores near you.",
+    title: "Latinos en Pizza | Locations",
   };
 };
 
