@@ -35,7 +35,7 @@ export default function Header() {
                     <div className="md:hidden items-center justify-end md:flex md:flex-1 lg:w-0">
                         <a
                             href="#"
-                            className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent bg-lightBlue px-3 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-500"
+                            className="rounded-full inline-flex items-center justify-center whitespace-nowrap border border-transparent bg-sauceRed px-3 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-500"
                         >
                             <NavDrawr />
                         </a>

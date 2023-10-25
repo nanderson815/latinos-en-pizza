@@ -1,95 +1,110 @@
-
-const SPACE = process.env.CONTENTFUL_SPACE_ID
-const TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN
-
+const SPACE = process.env.CONTENTFUL_SPACE_ID;
+const TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN;
 
 export interface Location {
-    name: string;
-    location: {
-        lat: number;
-        lon: number;
-    }
-    address: string;
-    phone: string;
-    tags?: string[];
+  name: string;
+  location: {
+    lat: number;
+    lon: number;
+  };
+  address: string;
+  phone: string;
+  tags?: string[];
 }
 
 export interface ContenfulEvent {
-    title: string;
-    startTime: string;
-    endTime: string;
-    streetAddress: string;
-    locationName: string;
-    image?: ContentfulImage;
-    description: any;
+  title: string;
+  startTime: string;
+  endTime: string;
+  streetAddress: string;
+  locationName: string;
+  image?: ContentfulImage;
+  description: any;
 }
 
 export interface Press {
-    title: string;
-    link: string;
-    description: string;
-    image: ContentfulImage;
+  title: string;
+  link: string;
+  description: string;
+  image: ContentfulImage;
 }
 
 export interface Testimonial {
-    name: string;
-    quote: string;
-    accentColor: string;
-    backgroundColor: string;
+  name: string;
+  quote: string;
+  accentColor: string;
+  backgroundColor: string;
 }
 
 export interface ContentfulImage {
-    url: string;
-    description?: string;
-    fileName?: string;
+  url: string;
+  description?: string;
+  fileName?: string;
+  contentType?: string;
 }
 
 export interface Ingredient {
-    name: string;
-    icon: ContentfulImage;
+  name: string;
+  icon: ContentfulImage;
 }
 
 export interface Flavor {
-    id: string;
-    name: string;
-    description: string;
-    primaryColor: string;
-    secondaryColor: string;
-    primaryImage: ContentfulImage;
-    flavorImage: ContentfulImage;
-    ingredientsCollection: { items: Ingredient[] };
+  id: string;
+  name: string;
+  description: string;
+  primaryColor: string;
+  secondaryColor: string;
+  primaryImage: ContentfulImage;
+  flavorImage: ContentfulImage;
+  ingredientsCollection: { items: Ingredient[] };
 }
 
 export interface Bio {
-    name: string;
-    about: string;
-    headshot: ContentfulImage;
+  name: string;
+  about: string;
+  headshot: ContentfulImage;
 }
 
 export interface AboutPage {
-    title: string;
-    aboutUs: string;
-    foundersCollection: {
-        items: Bio[]
-    }
+  title: string;
+  aboutUs: string;
+  foundersCollection: {
+    items: Bio[];
+  };
 }
 
+export interface HomePageSection {
+  leftAlign: boolean;
+  title: string;
+  body: any;
+  backgroundColor: string;
+  textColor: string;
+  media: ContentfulImage;
+}
+
+export interface HomePage {
+  heroText: string;
+  heroImage: ContentfulImage;
+  sectionsCollection: {
+    items: HomePageSection[];
+  };
+}
 
 async function apiCall(query: string, variables?: any) {
-    const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/master`;
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${TOKEN}`,
-        },
-        body: JSON.stringify({ query, variables }),
-    }
-    return await fetch(fetchUrl, options)
+  const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/master`;
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${TOKEN}`,
+    },
+    body: JSON.stringify({ query, variables }),
+  };
+  return await fetch(fetchUrl, options);
 }
 
 export const getEvents = async (): Promise<ContenfulEvent[]> => {
-    const query = `
+  const query = `
     {
         eventCollection {
             items {
@@ -107,14 +122,14 @@ export const getEvents = async (): Promise<ContenfulEvent[]> => {
             }
         }
     }
-    `
-    const response = await apiCall(query);
-    const json = await response.json();
-    return json.data.eventCollection.items;
-}
+    `;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.eventCollection.items;
+};
 
 export const getPress = async (): Promise<Press[]> => {
-    const query = `
+  const query = `
     {
         pressCollection {
             items {
@@ -127,14 +142,14 @@ export const getPress = async (): Promise<Press[]> => {
             }
         }
     }
-    `
-    const response = await apiCall(query);
-    const json = await response.json();
-    return json.data.pressCollection.items;
-}
+    `;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.pressCollection.items;
+};
 
 export const getTestimonials = async (): Promise<Testimonial[]> => {
-    const query = `
+  const query = `
     {
         testimonialCollection {
             items {
@@ -145,14 +160,14 @@ export const getTestimonials = async (): Promise<Testimonial[]> => {
             }
         }
     }
-    `
-    const response = await apiCall(query);
-    const json = await response.json();
-    return json.data.testimonialCollection.items;
-}
+    `;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.testimonialCollection.items;
+};
 
 export const getLocations = async (): Promise<Location[]> => {
-    const query = `
+  const query = `
     {
         storeLocationCollection {
             items {
@@ -167,14 +182,44 @@ export const getLocations = async (): Promise<Location[]> => {
             }
         }
     }
-    `
-    const response = await apiCall(query);
-    const json = await response.json();
-    return json.data.storeLocationCollection.items;
-}
+    `;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.storeLocationCollection.items;
+};
+
+export const getHomePage = async (locale: string): Promise<HomePage> => {
+  const query = `
+ {
+    homePage(id: "2IipJvLWEft3Qsb65R6S4R", locale: "es") {
+        heroText
+        heroImage {
+          url
+        }
+        sectionsCollection {
+          items {
+            media{
+              url
+              contentType
+            }
+            leftAlign
+            title
+            backgroundColor
+            textColor
+            body {
+              json
+            }
+          }
+        }
+      }
+  }`;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.homePage;
+};
 
 export const getAboutPage = async (): Promise<AboutPage> => {
-    const query = `
+  const query = `
     {
         aboutPageCollection (where: {title:"AboutUs"}) {
             items {
@@ -191,52 +236,8 @@ export const getAboutPage = async (): Promise<AboutPage> => {
                 }
             }
         }
-    }`
-    const response = await apiCall(query);
-    const json = await response.json();
-    return json.data.aboutPageCollection.items[0];
-}
-
-export const getFlavor = async (id: string) => {
-    const query = `
-    query($id: String){
-        flavorCollection (where: {id: $id}) { 
-            items {
-                id
-                name
-                description
-                primaryColor
-                secondaryColor
-                primaryImage {
-                    url (transform: {
-                        height: 1200
-                        resizeStrategy: FILL
-                    })
-                }
-                flavorImage {
-                    url (transform: {
-                        height: 1200
-                        resizeStrategy: FILL
-                    })
-                }
-                ingredientsCollection {
-                    items {
-                        name
-                        icon {
-                            url
-                            description
-                            fileName
-                        }
-                    }
-                }
-            }
-        }
-    }
-    `
-    const variables = {
-        id
-    };
-    const response = await apiCall(query, variables);
-    const json = await response.json();
-    return json.data.flavorCollection.items?.[0];
-}
+    }`;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.aboutPageCollection.items[0];
+};

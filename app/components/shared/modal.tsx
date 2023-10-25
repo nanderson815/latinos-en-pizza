@@ -1,6 +1,6 @@
 import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ContenfulEvent } from '~/data/contentful'
+import type { ContenfulEvent } from '~/data/contentful'
 import RichTextResponse from './richText'
 
 export default function Modal({ open, setOpen, eventData }: { open: boolean, setOpen: any, eventData: ContenfulEvent | undefined }) {
