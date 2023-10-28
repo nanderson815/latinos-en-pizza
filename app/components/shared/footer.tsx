@@ -1,9 +1,13 @@
-import { Link } from "@remix-run/react";
+import { Link, useSearchParams } from "@remix-run/react";
+import { getResources } from "~/data/resources";
 import Logo from "~/images/logo.svg";
 
 export default function Footer() {
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale");
+  const resources = getResources(locale || "es");
   return (
-    <footer className="bg-[#CFE4CB] ">
+    <footer className="bg-primary">
       <div className="max-w-screen-2xl mx-auto sm:p-6 p-4 ">
         <div className="md:flex md:justify-between">
           <div className="mb-4 md:mb-0">
@@ -20,40 +24,40 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6">
             <div>
-              <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
-                Links
-              </h2>
+              <h3 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
+                {resources.links}
+              </h3>
               <ul className="text-gray-600">
-                <li className="mb-2">
+                {/* <li className="mb-2">
                   <Link to="/about" className="hover:underline">
-                    About
+                    {resources.about}
                   </Link>
-                </li>
+                </li> */}
                 <li className="mb-2">
                   <Link to="/contactUs" className="hover:underline">
-                    Contact
+                    {resources.contactUs}
                   </Link>
                 </li>
-                <li className="mb-2">
+                {/* <li className="mb-2">
                   <Link to="/eventRequest" className="hover:underline">
                     Book an Event
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div>
-              <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
-                Resources
-              </h2>
+              <h3 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
+                {resources.resources}
+              </h3>
               <ul className="text-gray-600">
-                <li className="mb-2">
+                {/* <li className="mb-2">
                   <Link to="/press" className="hover:underline">
-                    Press
+                    {resources.press}
                   </Link>
-                </li>
+                </li> */}
                 <li className="mb-2">
                   <Link to="/locations" className="hover:underline ">
-                    Find in Store
+                    {resources.locations}
                   </Link>
                 </li>
               </ul>

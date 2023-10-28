@@ -9,15 +9,16 @@ import Section from "~/components/home/section";
 import Footer from "~/components/shared/footer";
 import HomeSection from "~/components/home/homeSection";
 
-export const loader: LoaderFunction = async () => {
-  const data: HomePage = await getHomePage("es");
+export const loader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url);
+  const locale = url.searchParams.get("locale");
+  const data: HomePage = await getHomePage(locale || "es");
   return { data };
 };
 
 export default function Home() {
   const { data }: { data: HomePage } = useLoaderData();
   const { heroText, sectionsCollection } = data;
-  console.log(data);
   return (
     <>
       <Header />

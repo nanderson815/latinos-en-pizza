@@ -43,22 +43,6 @@ export interface ContentfulImage {
   contentType?: string;
 }
 
-export interface Ingredient {
-  name: string;
-  icon: ContentfulImage;
-}
-
-export interface Flavor {
-  id: string;
-  name: string;
-  description: string;
-  primaryColor: string;
-  secondaryColor: string;
-  primaryImage: ContentfulImage;
-  flavorImage: ContentfulImage;
-  ingredientsCollection: { items: Ingredient[] };
-}
-
 export interface Bio {
   name: string;
   about: string;
@@ -191,7 +175,7 @@ export const getLocations = async (): Promise<Location[]> => {
 export const getHomePage = async (locale: string): Promise<HomePage> => {
   const query = `
  {
-    homePage(id: "2IipJvLWEft3Qsb65R6S4R", locale: "es") {
+    homePage(id: "2IipJvLWEft3Qsb65R6S4R", locale: "${locale}") {
         heroText
         heroImage {
           url

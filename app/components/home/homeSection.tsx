@@ -20,17 +20,17 @@ export default function HomeSection(data: HomePageSection) {
       <>
         <div className="flex items-center flex-col my-5 w-full md:w-3/6 ">
           <h1
-            className="text-4xl md:text-5xl text-center"
+            className="text-4xl md:text-5xl text-center mb-8"
             style={{ color: textColor }}
           >
             {title}
           </h1>
-          <p
+          <div
             className={`text-2xl text-center pt-4`}
             style={{ whiteSpace: "pre-wrap", color: textColor }}
           >
             {RichTextResponse(body)}
-          </p>
+          </div>
         </div>
         <div className="flex items-center my-5 w-full md:w-2/6 ">
           {mediaContainer}
@@ -45,17 +45,17 @@ export default function HomeSection(data: HomePageSection) {
         </div>
         <div className="flex items-center flex-col my-5 w-full md:w-3/6 ">
           <h1
-            className="text-4xl md:text-5xl text-center"
+            className="text-4xl md:text-5xl text-center mb-8"
             style={{ color: textColor }}
           >
             {title}
           </h1>
-          <p
+          <div
             className={`text-2xl text-center pt-4`}
             style={{ whiteSpace: "pre-wrap", color: textColor }}
           >
             {RichTextResponse(body)}
-          </p>
+          </div>
         </div>
       </>
     );
