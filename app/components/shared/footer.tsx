@@ -4,8 +4,8 @@ import Logo from "~/images/logo.svg";
 
 export default function Footer() {
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale");
-  const resources = getResources(locale || "es");
+  const locale = searchParams.get("locale") || "es";
+  const resources = getResources(locale);
   return (
     <footer className="bg-primary">
       <div className="max-w-screen-2xl mx-auto sm:p-6 p-4 ">
@@ -34,7 +34,10 @@ export default function Footer() {
                   </Link>
                 </li> */}
                 <li className="mb-2">
-                  <Link to="/contactUs" className="hover:underline">
+                  <Link
+                    to={`/contactUs?locale=${locale}`}
+                    className="hover:underline"
+                  >
                     {resources.contactUs}
                   </Link>
                 </li>
@@ -56,7 +59,10 @@ export default function Footer() {
                   </Link>
                 </li> */}
                 <li className="mb-2">
-                  <Link to="/locations" className="hover:underline ">
+                  <Link
+                    to={`/locations?locale=${locale}`}
+                    className="hover:underline "
+                  >
                     {resources.locations}
                   </Link>
                 </li>

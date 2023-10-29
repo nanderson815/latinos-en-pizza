@@ -38,7 +38,7 @@ export default function Events() {
   };
 
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale");
+  const locale = searchParams.get("locale") || "es";
   const resources = getResources(locale || "es");
 
   if (isMobile === undefined) {

@@ -6,7 +6,7 @@ import MenuIcon from "~/icons/menu";
 export default function NavDrawer() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale");
+  const locale = searchParams.get("locale") || "es";
   const resources = getResources(locale || "es");
   return (
     <>
@@ -36,7 +36,10 @@ export default function NavDrawer() {
                 }}
               >
                 <li className="mb-4">
-                  <Link to="/locations" className="hover:underline ">
+                  <Link
+                    to={`/locations?locale=${locale}`}
+                    className="hover:underline "
+                  >
                     {resources.locations}
                   </Link>
                 </li>
@@ -44,7 +47,7 @@ export default function NavDrawer() {
                                     <Link to="/about" className="hover:underline">About</Link>
                                 </li> */}
                 <li className="mb-4">
-                  <Link to="/events" className="hover:underline">
+                  <Link to={`/events?locale=${locale}`} className="hover:underline">
                     {resources.events}
                   </Link>
                 </li>
@@ -52,7 +55,7 @@ export default function NavDrawer() {
                                     <Link to="/eventRequest" className="hover:underline">Book an Event</Link>
                                 </li> */}
                 <li className="mb-4">
-                  <Link to="/contactUs" className="hover:underline ">
+                  <Link to={`/contactUs?locale=${locale}`} className="hover:underline ">
                     {resources.contactUs}
                   </Link>
                 </li>

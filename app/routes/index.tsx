@@ -11,7 +11,7 @@ import HomeSection from "~/components/home/homeSection";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
-  const locale = url.searchParams.get("locale");
+  const locale = url.searchParams.get("locale") || "es";
   const data: HomePage = await getHomePage(locale || "es");
   return { data };
 };

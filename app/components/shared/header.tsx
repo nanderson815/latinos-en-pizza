@@ -7,15 +7,15 @@ import { getResources } from "~/data/resources";
 
 export default function Header() {
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale");
-  const resources = getResources(locale || "es");
+  const locale = searchParams.get("locale") || "es";
+  const resources = getResources(locale);
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-screen-2xl px-4 sm:px-6">
         <div className="flex items-center justify-between border-b-2 border-gray-100 py-3 md:justify-start md:space-x-10">
           <div className="hidden flex justify-start md:w-0 md:flex-1 space-x-10 md:flex items-center">
             <Link
-              to="/locations"
+              to={`/locations?locale=${locale}`}
               className="text-xl my-4 font-medium text-gray-500 hover:text-gray-900"
             >
               {resources.locations}
@@ -26,7 +26,7 @@ export default function Header() {
             <LocaleToggle />
           </div>
           <div className="space-x-10 md:flex">
-            <Link to="/">
+            <Link to={`/?locale=${locale}`}>
               <span className="sr-only">Latinos en Pizza</span>
               <img
                 src={Logo}
@@ -44,7 +44,7 @@ export default function Header() {
               {resources.about}
             </Link> */}
             <Link
-              to="/events"
+              to={`/events?locale=${locale}`}
               className="text-xl font-medium text-gray-500 hover:text-gray-900"
             >
               {resources.events}

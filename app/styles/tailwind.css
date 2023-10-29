@@ -702,16 +702,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1.25rem;
 }
 
+.w-0 {
+  width: 0px;
+}
+
 .w-24 {
   width: 6rem;
 }
 
 .w-\[65vw\] {
   width: 65vw;
-}
-
-.w-0 {
-  width: 0px;
 }
 
 .max-w-screen-2xl {

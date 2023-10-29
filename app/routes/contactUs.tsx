@@ -28,7 +28,7 @@ export async function action({ request }: DataFunctionArgs) {
 export default function Contact() {
   const actionData = useActionData();
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale");
+  const locale = searchParams.get("locale") || "es";
   const resources = getResources(locale || "es");
   return (
     <div>

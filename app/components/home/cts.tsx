@@ -5,7 +5,7 @@ import MapIcon from "public/images/map.png";
 
 export default function CTA() {
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale");
+  const locale = searchParams.get("locale") || "es";
   const resources = getResources(locale || "es");
   return (
     <div className="flex flex-col justify-center items-center max-w-screen-2xl mx-auto p-5 md:p-8">

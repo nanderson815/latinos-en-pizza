@@ -4,7 +4,7 @@ import Button from "../shared/button";
 
 export default function Hero({ title }: { title: string }) {
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale");
+  const locale = searchParams.get("locale") || "es";
   const resources = getResources(locale || "es");
   return (
     <div className="flex justify-center items-center h-[25rem] md:h-[35rem]  mx-auto bg-primary">
