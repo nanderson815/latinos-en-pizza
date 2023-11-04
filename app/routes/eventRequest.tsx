@@ -8,8 +8,8 @@ import { formatDate } from "~/utilities/general";
 
 export const meta: MetaFunction = () => {
     return {
-        title: "YOM Ice Cream | Caterying",
-        description: "Serve YOM Ice Cream at your next event with YOM catering!"
+        title: "Latinos en Pizza | Caterying",
+        description: "Serve Latinos en Pizza at your next event with catering!"
     }
 }
 
@@ -36,7 +36,7 @@ export default function EventRequest() {
             </div>
             <section className="bg-white">
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                    <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Want YOM Ice Cream catering at your next event? Let us know!</p>
+                    <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Want Latinos en Pizza catering at your next event? Let us know!</p>
                     <form id="eventRequest" name="eventRequest" method="POST" data-netlify="true" className="space-y-8">
                         <input type="hidden" name="form-name" value="eventRequest"></input>
                         <div>
@@ -45,7 +45,7 @@ export default function EventRequest() {
                         </div>
                         <div className="md:w-1/2 md:inline-block md:pr-2">
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email*</label>
-                            <input type="text" id="email" name="email" className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="name@yomicecream.com" required />
+                            <input type="text" id="email" name="email" className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500" placeholder="name@email.com" required />
                         </div>
                         <div className="md:w-1/2 md:inline-block">
                             <label htmlFor="tel" className="block mb-2 text-sm font-medium text-gray-900">Your phone #*</label>

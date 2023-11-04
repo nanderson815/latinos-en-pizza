@@ -7,7 +7,7 @@ import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
     return {
-        title: "YOM Ice Cream | About",
+        title: "Latinos en Pizza | About",
     }
 }
 
