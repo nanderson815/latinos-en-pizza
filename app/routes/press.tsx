@@ -1,10 +1,12 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useSearchParams } from "@remix-run/react";
 import Card from "~/components/shared/card";
 import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
 import type { Press as PressData } from "~/data/contentful";
 import { getPress } from "~/data/contentful";
+import { getResources } from "~/data/resources";
+
 
 export const meta: MetaFunction = () => {
   return {
@@ -13,22 +15,27 @@ export const meta: MetaFunction = () => {
   };
 };
 
-export const loader: LoaderFunction = async () => {
-  const data: PressData[] = await getPress();
+export const loader: LoaderFunction = async ({request}) => {
+  const url = new URL(request.url);
+  const locale = url.searchParams.get("locale") || "es";
+  const data: PressData[] = await getPress(locale);
   return { data };
 };
 
 export default function Press() {
   const { data }: { data: PressData[] } = useLoaderData();
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale") || "es";
+  const resources = getResources(locale || "es");
 
   return (
     <>
       <Header />
       <div className="max-w-screen-2xl mx-auto">
-        <div className="flex justify-center md:items-center h-[25rem] md:h-[35rem] max-w-screen-2xl mx-auto bg-hero5 bg-cover bg-center">
+        <div className="flex justify-center items-center h-[20rem] max-w-screen-2xl mx-auto bg-primary">
           <div className="p-10">
             <h1 className="uppercase text-4xl md:text-6xl text-center text-white  mt-6 md:mt-0">
-              Check out what people are saying about Latinos en Pizza!
+              {resources.pressHeader}
             </h1>
           </div>
         </div>

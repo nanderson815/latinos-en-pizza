@@ -7,7 +7,7 @@ import { getResources } from "~/data/resources";
 
 export default function Header() {
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get("locale") || "es";
+  const locale = searchParams.get("locale") || 'es';
   const resources = getResources(locale);
   return (
     <div className="relative bg-white">
@@ -48,6 +48,12 @@ export default function Header() {
               className="text-xl font-medium text-gray-500 hover:text-gray-900"
             >
               {resources.events}
+            </Link>
+            <Link
+              to={`/press?locale=${locale}`}
+              className="text-xl font-medium text-gray-500 hover:text-gray-900"
+            >
+              {resources.press}
             </Link>
           </div>
           <div className="md:hidden items-center justify-end md:flex md:flex-1 lg:w-0">

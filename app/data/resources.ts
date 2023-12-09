@@ -27,6 +27,10 @@ const resources: any = {
     "en-US": "Press",
     es: "Prensa",
   },
+  pressHeader: {
+    "en-US": "Check out what people are saying about Latinos en Pizza!",
+    es: "¡Mira lo que la gente está diciendo sobre Latinos en Pizza!",
+  },
   findLocations: {
     "en-US": "Find Locations",
     es: "Encuentra ubicaciones",

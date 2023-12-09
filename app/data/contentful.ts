@@ -121,10 +121,10 @@ export const getEvents = async (): Promise<ContenfulEvent[]> => {
   return json.data.eventCollection.items;
 };
 
-export const getPress = async (): Promise<Press[]> => {
+export const getPress = async (locale: string): Promise<Press[]> => {
   const query = `
     {
-        pressCollection {
+        pressCollection (locale: "${locale}") {
             items {
                 title
                 link

@@ -674,6 +674,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.25rem;
 }
 
+.h-\[20rem\] {
+  height: 20rem;
+}
+
 .min-h-\[290px\] {
   min-height: 290px;
 }
@@ -712,10 +716,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[65vw\] {
   width: 65vw;
-}
-
-.w-4 {
-  width: 1rem;
 }
 
 .max-w-screen-2xl {
@@ -1038,10 +1038,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-hero4 {
   background-image: url(/images/hero4.jpg);
-}
-
-.bg-hero5 {
-  background-image: url(/images/hero5.jpg);
 }
 
 .bg-cover {

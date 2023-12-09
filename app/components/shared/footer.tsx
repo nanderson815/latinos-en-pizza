@@ -53,11 +53,11 @@ export default function Footer() {
                 {resources.resources}
               </h3>
               <ul className="text-gray-600">
-                {/* <li className="mb-2">
-                  <Link to="/press" className="hover:underline">
+                <li className="mb-2">
+                  <Link to={`/press?locale=${locale}`} className="hover:underline">
                     {resources.press}
                   </Link>
-                </li> */}
+                </li>
                 <li className="mb-2">
                   <Link
                     to={`/locations?locale=${locale}`}
