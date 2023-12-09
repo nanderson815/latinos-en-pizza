@@ -38,7 +38,7 @@ export default function Locations() {
   const [userLocation, setUserLocation] = useState<UserLocation>();
   const [userLocationLoading, setUserLocationLoading] =
     useState<boolean>(false);
-  const [zoom, setZoom] = useState<number>(8);
+  const [zoom, setZoom] = useState<number>(5);
 
   const { isLoaded } = useLoadScript({ googleMapsApiKey: key, libraries });
 
@@ -51,18 +51,18 @@ export default function Locations() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           });
-          setZoom(13);
+          setZoom(5);
           setUserLocationLoading(false);
         },
         () => {
           setUserLocationLoading(false);
-          setZoom(13);
+          setZoom(5);
           setUserLocation({ lat: 33.74636858126393, lng: -84.37079962883581 });
         }
       );
     } else {
       console.log("Geolocation is not supported by your browser");
-      setZoom(13);
+      setZoom(5);
       setUserLocation({ lat: 33.74636858126393, lng: -84.37079962883581 });
     }
   }, []);

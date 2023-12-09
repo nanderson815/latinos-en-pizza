@@ -10,6 +10,15 @@ export interface Location {
   address: string;
   phone: string;
   tags?: string[];
+  linksCollection: {
+    items: Link[];
+  };
+}
+
+export interface Link {
+  target: string;
+  displayText?: string;
+  icon?: ContentfulImage;
 }
 
 export interface ContenfulEvent {
@@ -162,6 +171,15 @@ export const getLocations = async (): Promise<Location[]> => {
                 location {
                     lat
                     lon
+                }
+                linksCollection(limit:10) {
+                  items {
+                    target
+                    displayText
+                    icon {
+                      url
+                    }
+                  }
                 }
             }
         }
