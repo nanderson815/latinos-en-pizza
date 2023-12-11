@@ -47,7 +47,26 @@ export default function NavDrawer() {
                                     <Link to="/about" className="hover:underline">About</Link>
                                 </li> */}
                 <li className="mb-4">
-                  <Link to={`/events?locale=${locale}`} className="hover:underline">
+                  <Link
+                    to={`/press?locale=${locale}`}
+                    className="hover:underline"
+                  >
+                    {resources.press}
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link
+                    to={`/posts?locale=${locale}`}
+                    className="hover:underline"
+                  >
+                    {resources.posts}
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link
+                    to={`/events?locale=${locale}`}
+                    className="hover:underline"
+                  >
                     {resources.events}
                   </Link>
                 </li>
@@ -55,7 +74,10 @@ export default function NavDrawer() {
                                     <Link to="/eventRequest" className="hover:underline">Book an Event</Link>
                                 </li> */}
                 <li className="mb-4">
-                  <Link to={`/contactUs?locale=${locale}`} className="hover:underline ">
+                  <Link
+                    to={`/contactUs?locale=${locale}`}
+                    className="hover:underline "
+                  >
                     {resources.contactUs}
                   </Link>
                 </li>

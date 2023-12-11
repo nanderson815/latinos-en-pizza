@@ -15,6 +15,13 @@ export interface Location {
   };
 }
 
+export interface Post {
+  title: string;
+  slug: string;
+  image: ContentfulImage;
+  body: any;
+}
+
 export interface Link {
   target: string;
   displayText?: string;
@@ -242,4 +249,70 @@ export const getAboutPage = async (): Promise<AboutPage> => {
   const response = await apiCall(query);
   const json = await response.json();
   return json.data.aboutPageCollection.items[0];
+};
+
+export const getPosts = async (locale: string): Promise<Post[]> => {
+  const query = `
+    {
+      postCollection(locale: "${locale}") {
+        items {
+          title
+          slug
+          image {
+            url
+          }
+        }
+      }
+    }
+    `;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.postCollection.items;
+};
+
+export const getPost = async (slug: string, locale: string): Promise<Post> => {
+  const query = `
+    {
+      postCollection (where:{slug: "${slug}"}, locale: "${locale}", limit:1) {
+        items {
+          title
+          image {
+            url
+          }
+          body {
+            json
+            links {
+              entries {
+                inline {
+                  sys {
+                    id
+                  }
+                }
+                block {
+                  sys {
+                    id
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                  description
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `;
+  const response = await apiCall(query);
+  const json = await response.json();
+  return json.data.postCollection.items[0];
 };

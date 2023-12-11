@@ -31,6 +31,10 @@ const resources: any = {
     "en-US": "Check out what people are saying about Latinos en Pizza!",
     es: "¡Mira lo que la gente está diciendo sobre Latinos en Pizza!",
   },
+  posts: {
+    "en-US": "Posts",
+    es: "Publicaciones",
+  },
   findLocations: {
     "en-US": "Find Locations",
     es: "Encuentra ubicaciones",

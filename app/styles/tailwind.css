@@ -622,6 +622,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: inline-block;
 }
 
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
@@ -662,6 +666,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: calc(100vh - 82px);
 }
 
+.h-\[20rem\] {
+  height: 20rem;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -672,10 +680,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-5 {
   height: 1.25rem;
-}
-
-.h-\[20rem\] {
-  height: 20rem;
 }
 
 .min-h-\[290px\] {
@@ -1032,24 +1036,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 0.25;
 }
 
-.bg-hero2 {
-  background-image: url(/images/hero2.jpg);
-}
-
-.bg-hero4 {
-  background-image: url(/images/hero4.jpg);
-}
-
 .bg-cover {
   background-size: cover;
 }
 
 .bg-bottom {
   background-position: bottom;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .p-10 {
@@ -1200,6 +1192,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-light {

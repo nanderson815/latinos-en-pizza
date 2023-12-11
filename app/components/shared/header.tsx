@@ -50,6 +50,12 @@ export default function Header() {
               {resources.events}
             </Link>
             <Link
+              to={`/posts?locale=${locale}`}
+              className="text-xl font-medium text-gray-500 hover:text-gray-900"
+            >
+              {resources.posts}
+            </Link>
+            <Link
               to={`/press?locale=${locale}`}
               className="text-xl font-medium text-gray-500 hover:text-gray-900"
             >
