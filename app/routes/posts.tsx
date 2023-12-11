@@ -10,7 +10,7 @@ import { getResources } from "~/data/resources";
 export const meta: MetaFunction = () => {
   return {
     title: "Latinos en Pizza | Posts",
-    description: "See what people are saying about Latinos en Pizza",
+    description: "Stay up to date on everything related to Latinos en Pizza",
   };
 };
 
