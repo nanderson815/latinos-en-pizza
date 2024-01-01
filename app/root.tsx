@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "Latinos En Pizza",
   url: "https://www.latinosenpizza.org",
-  description: "Latinos En Pizza - coming soon!",
+  description: "Latinos en pizza is a project founded by Sofía Arango with the purpose of uniting and supporting latinos pizza makers.",
   // image: "http://static1.squarespace.com/static/5dd3f3cdeeffcb7babf1c291/t/5df9020b4b25696a015252f3/1576600078052/yo%CC%84m_thumbnail-18.png?format=1500w",
   viewport: "width=device-width,initial-scale=1",
 });
